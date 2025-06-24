@@ -1,7 +1,16 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
-import { Sparkles, Droplets, Shield, Hammer, X, Zap, Brush, Wrench } from "lucide-react"
+import React, { useEffect, useState, useRef } from "react"
+import {
+  Sparkles,
+  Droplets,
+  Shield,
+  Hammer,
+  X,
+  Zap,
+  Brush,
+  Wrench,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -85,41 +94,30 @@ const services = [
   },
 ]
 
-// Floating particles component
-const FloatingParticles = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-2 h-2 bg-[#c59d5f]/20 rounded-full animate-float"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${3 + Math.random() * 4}s`,
-          }}
-        />
-      ))}
-    </div>
-  )
-}
+const FloatingParticles = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {[...Array(20)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-2 h-2 bg-[#c59d5f]/20 rounded-full animate-float"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${3 + Math.random() * 4}s`,
+        }}
+      />
+    ))}
+  </div>
+)
 
-// Animated blob shapes
-const AnimatedBlobs = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Large blob */}
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-[#c59d5f]/10 to-[#00675b]/5 rounded-full blur-3xl animate-blob" />
-
-      {/* Medium blob */}
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-[#00675b]/10 to-[#c59d5f]/5 rounded-full blur-3xl animate-blob animation-delay-2000" />
-
-      {/* Small blob */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-[#c59d5f]/5 to-[#00675b]/10 rounded-full blur-2xl animate-blob animation-delay-4000" />
-    </div>
-  )
-}
+const AnimatedBlobs = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-[#c59d5f]/10 to-[#00675b]/5 rounded-full blur-3xl animate-blob" />
+    <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-[#00675b]/10 to-[#c59d5f]/5 rounded-full blur-3xl animate-blob animation-delay-2000" />
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-[#c59d5f]/5 to-[#00675b]/10 rounded-full blur-2xl animate-blob animation-delay-4000" />
+  </div>
+)
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null)
@@ -128,43 +126,30 @@ export default function Services() {
   const cardRefs = useRef([])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cardIndex = cardRefs.current.indexOf(entry.target)
-            if (cardIndex !== -1) {
-              setTimeout(() => {
-                setVisibleCards((prev) => [...prev, cardIndex])
-              }, cardIndex * 200) // Staggered animation
-            }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = cardRefs.current.indexOf(entry.target)
+          if (index !== -1) {
+            setTimeout(() => {
+              setVisibleCards((prev) => [...prev, index])
+            }, index * 200)
           }
-        })
-      },
-      { threshold: 0.1 },
-    )
+        }
+      })
+    }, { threshold: 0.1 })
 
-    cardRefs.current.forEach((card) => {
-      if (card) observer.observe(card)
-    })
+    cardRefs.current.forEach((el) => el && observer.observe(el))
 
     return () => observer.disconnect()
   }, [])
 
   return (
     <section id="our-services" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]">
-        {/* Animated mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#c59d5f]/5 via-transparent to-[#00675b]/5 animate-gradient-x" />
-
-        {/* Floating particles */}
         <FloatingParticles />
-
-        {/* Animated blobs */}
         <AnimatedBlobs />
-
-        {/* Subtle grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]">
           <div
             className="absolute inset-0"
@@ -179,8 +164,7 @@ export default function Services() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-white">
-            Our Premium{" "}
-            <span className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">Services</span>
+            Our Premium <span className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto font-['DM_Sans']">
             We offer comprehensive marble restoration services using cutting-edge technology and premium materials
@@ -194,39 +178,28 @@ export default function Services() {
               ref={(el) => (cardRefs.current[index] = el)}
               className={cn(
                 "relative group cursor-pointer transition-all duration-700 ease-out",
-                visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+                visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               )}
               onClick={() => setActiveService(service)}
             >
-              {/* Card container with hover effects */}
               <div className="relative h-full p-6 rounded-2xl backdrop-blur-sm border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[#c59d5f]/20">
-                {/* Animated border glow */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#c59d5f]/20 to-[#00675b]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
 
-                {/* Service icon with animation */}
-                <div
-  className={`relative w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
->
-  <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md" />
-  <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${service.color}`} />
-  <service.icon className="relative z-10 h-8 w-8 text-white group-hover:animate-pulse" />
-</div>
-
-
-                  {/* Icon glow effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md" />
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${service.color}`} />
+                  {React.createElement(service.icon, {
+                    className: "relative z-10 h-8 w-8 text-white group-hover:animate-pulse",
+                  })}
                 </div>
 
-                {/* Content */}
                 <h3 className="text-xl font-bold mb-3 text-white font-['Sora'] group-hover:text-[#c59d5f] transition-colors duration-300">
                   {service.title}
                 </h3>
-
                 <p className="text-white/70 mb-6 font-['DM_Sans'] leading-relaxed group-hover:text-white/90 transition-colors duration-300">
                   {service.description}
                 </p>
 
-                {/* Learn more button */}
                 <div className="flex items-center text-[#c59d5f] group-hover:text-white transition-colors duration-300">
                   <span className="text-sm font-medium">Learn more</span>
                   <svg
@@ -239,17 +212,13 @@ export default function Services() {
                   </svg>
                 </div>
 
-                {/* Hover overlay */}
-                <div
-                  className={`absolute inset-0 ${service.gradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 pointer-events-none`}
-                />
+                <div className={`absolute inset-0 ${service.gradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 pointer-events-none`} />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Modal for service details */}
       {activeService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
           <div
@@ -258,12 +227,11 @@ export default function Services() {
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
               <div
-                className={`w-full h-full bg-gradient-to-br ${activeService.color} relative`}
-                style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                className={`w-full h-full bg-gradient-to-br ${activeService.color} relative flex items-center justify-center`}
               >
-                <activeService.icon className="h-20 w-20 text-white animate-pulse" />
-
-                {/* Animated particles in modal */}
+                {React.createElement(activeService.icon, {
+                  className: "h-20 w-20 text-white animate-pulse",
+                })}
                 <div className="absolute inset-0">
                   {[...Array(10)].map((_, i) => (
                     <div
@@ -290,9 +258,13 @@ export default function Services() {
             </div>
 
             <div className="p-6">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-['Sora']">{activeService.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-['Sora']">
+                {activeService.title}
+              </h3>
 
-              <p className="text-white/80 mb-6 font-['DM_Sans']">{activeService.description}</p>
+              <p className="text-white/80 mb-6 font-['DM_Sans']">
+                {activeService.description}
+              </p>
 
               <div className="space-y-4">
                 <h4 className="font-bold text-white">Process:</h4>
