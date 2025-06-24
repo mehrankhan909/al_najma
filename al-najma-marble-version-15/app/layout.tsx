@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ PNG favicon */}
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/spray_7601691.png" type="image/png" />
 
         {/* Fonts (if you're using them) */}
         <link
