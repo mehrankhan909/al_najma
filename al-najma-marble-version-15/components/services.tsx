@@ -205,9 +205,13 @@ export default function Services() {
 
                 {/* Service icon with animation */}
                 <div
-                  className={`relative w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-br ${service.color} group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <service.icon className="h-8 w-8 text-white group-hover:animate-pulse" />
+  className={`relative w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+>
+  <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md" />
+  <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${service.color}`} />
+  <service.icon className="relative z-10 h-8 w-8 text-white group-hover:animate-pulse" />
+</div>
+
 
                   {/* Icon glow effect */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
