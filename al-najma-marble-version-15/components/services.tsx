@@ -187,7 +187,7 @@ export default function Services() {
 
                 <div className="relative w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md" />
-                  <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${service.color}`} />
+                  <div className={`absolute inset-0 rounded-full bg-black/30 ${service.color}`} />
                   {React.createElement(service.icon, {
                     className: "relative z-10 h-8 w-8 text-white group-hover:animate-pulse",
                   })}
@@ -226,9 +226,7 @@ export default function Services() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
-              <div
-  className="w-full h-full bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] relative flex items-center justify-center"
->
+              <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] relative flex items-center justify-center">
 
                 {React.createElement(activeService.icon, {
                   className: "h-20 w-20 text-white animate-pulse",
@@ -266,24 +264,6 @@ export default function Services() {
               <p className="text-white/80 mb-6 font-['DM_Sans']">
                 {activeService.description}
               </p>
-
-              <div className="space-y-4">
-                <h4 className="font-bold text-white">Process:</h4>
-                <ul className="list-disc pl-5 space-y-2 text-white/70">
-                  <li>Initial assessment and cleaning</li>
-                  <li>Surface preparation and treatment</li>
-                  <li>Multi-stage polishing process</li>
-                  <li>Final inspection and sealing</li>
-                </ul>
-
-                <h4 className="font-bold text-white mt-6">Benefits:</h4>
-                <ul className="list-disc pl-5 space-y-2 text-white/70">
-                  <li>Extends the life of your marble surfaces</li>
-                  <li>Enhances natural beauty and shine</li>
-                  <li>Increases property value</li>
-                  <li>Easier maintenance and cleaning</li>
-                </ul>
-              </div>
 
               <div className="mt-8 flex justify-end">
                 <Button
