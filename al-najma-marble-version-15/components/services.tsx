@@ -227,8 +227,9 @@ export default function Services() {
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
               <div
-                className={`w-full h-full bg-gradient-to-br ${activeService.color} relative flex items-center justify-center`}
-              >
+  className="w-full h-full bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] relative flex items-center justify-center"
+>
+
                 {React.createElement(activeService.icon, {
                   className: "h-20 w-20 text-white animate-pulse",
                 })}
