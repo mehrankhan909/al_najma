@@ -5,7 +5,6 @@ import {
   Sparkles,
   Droplets,
   Shield,
-  Hammer,
   X,
   Zap,
   Brush,
@@ -183,11 +182,11 @@ export default function Services() {
               onClick={() => setActiveService(service)}
             >
               <div className="relative h-full p-6 rounded-2xl backdrop-blur-sm border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[#c59d5f]/20">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#c59d5f]/20 to-[#00675b]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+                <div className={`absolute inset-0 ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-2xl`} />
 
                 <div className="relative w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md" />
-                  <div className={`absolute inset-0 rounded-full bg-black/30 ${service.color}`} />
+                  <div className={`absolute inset-0 rounded-full ${service.color} bg-opacity-20`} />
                   {React.createElement(service.icon, {
                     className: "relative z-10 h-8 w-8 text-white group-hover:animate-pulse",
                   })}
@@ -211,8 +210,6 @@ export default function Services() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-
-                <div className={`absolute inset-0 ${service.gradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 pointer-events-none`} />
               </div>
             </div>
           ))}
@@ -220,14 +217,13 @@ export default function Services() {
       </div>
 
       {activeService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={() => setActiveService(null)}>
           <div
             className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-white/20 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
               <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] relative flex items-center justify-center">
-
                 {React.createElement(activeService.icon, {
                   className: "h-20 w-20 text-white animate-pulse",
                 })}
@@ -260,11 +256,9 @@ export default function Services() {
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-['Sora']">
                 {activeService.title}
               </h3>
-
               <p className="text-white/80 mb-6 font-['DM_Sans']">
-                {activeService.description}
+                {activeService.details}
               </p>
-
               <div className="mt-8 flex justify-end">
                 <Button
                   onClick={() => {
