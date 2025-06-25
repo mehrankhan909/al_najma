@@ -12,10 +12,7 @@ const services = [
     description:
       "Complete restoration of damaged marble surfaces, bringing them back to their original beauty with professional techniques and premium materials.",
     icon: Sparkles,
-    color: "from-[#c59d5f] to-[#e7c992]",
-    gradient: "bg-gradient-to-br from-[#c59d5f]/30 to-[#e7c992]/20",
-    textColor: "text-stone-800",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
     details:
       "Our marble restoration process includes crack repair, stain removal, surface leveling, and complete refinishing to restore your marble's natural elegance.",
   },
@@ -25,10 +22,7 @@ const services = [
     description:
       "Professional marble shining services that restore the natural luster and brilliance of your marble surfaces with diamond polishing techniques.",
     icon: Zap,
-    color: "from-[#00675b] to-[#00a896]",
-    gradient: "bg-gradient-to-br from-[#00675b]/30 to-[#00a896]/20",
-    textColor: "text-teal-900",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
     details:
       "Using advanced diamond polishing compounds and techniques, we restore the mirror-like finish that makes marble surfaces truly spectacular.",
   },
@@ -38,10 +32,7 @@ const services = [
     description:
       "Expert grouting services for marble installations, ensuring perfect sealing and long-lasting protection against moisture and stains.",
     icon: Brush,
-    color: "from-[#1b1b1b] to-[#4a4a4a]",
-    gradient: "bg-gradient-to-br from-[#1b1b1b]/30 to-[#4a4a4a]/20",
-    textColor: "text-gray-800",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
     details:
       "Professional grouting with premium sealants that protect your marble joints from water damage, staining, and deterioration.",
   },
@@ -51,10 +42,7 @@ const services = [
     description:
       "Professional marble installation and fixing services for floors, walls, countertops, and decorative elements with precision and care.",
     icon: Wrench,
-    color: "from-[#c59d5f] to-[#00675b]",
-    gradient: "bg-gradient-to-br from-[#c59d5f]/30 to-[#00675b]/20",
-    textColor: "text-neutral-800",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#00675b]",
     details:
       "Expert installation services ensuring perfect alignment, proper support, and long-lasting durability for all marble applications.",
   },
@@ -64,10 +52,7 @@ const services = [
     description:
       "Diamond polishing services that bring out the natural shine and beauty of marble surfaces with professional-grade equipment.",
     icon: Sparkles,
-    color: "from-[#00675b] to-[#00a896]",
-    gradient: "bg-gradient-to-br from-[#00675b]/30 to-[#00a896]/20",
-    textColor: "text-teal-900",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
     details:
       "Multi-stage polishing process using diamond pads and compounds to achieve the perfect mirror finish on all marble surfaces.",
   },
@@ -77,10 +62,7 @@ const services = [
     description:
       "Specialized cleaning services using marble-safe products and techniques to maintain the beauty and integrity of your surfaces.",
     icon: Droplets,
-    color: "from-[#1b1b1b] to-[#4a4a4a]",
-    gradient: "bg-gradient-to-br from-[#1b1b1b]/30 to-[#4a4a4a]/20",
-    textColor: "text-gray-800",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
     details:
       "Safe, effective cleaning methods that remove dirt, grime, and stains without damaging the marble's natural structure.",
   },
@@ -90,10 +72,7 @@ const services = [
     description:
       "Intensive deep cleaning services that penetrate marble pores to remove embedded dirt, stains, and restore original appearance.",
     icon: Shield,
-    color: "from-[#c59d5f] to-[#e7c992]",
-    gradient: "bg-gradient-to-br from-[#c59d5f]/30 to-[#e7c992]/20",
-    textColor: "text-stone-800",
-    hoverTextColor: "text-white",
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
     details:
       "Comprehensive deep cleaning process that removes years of buildup and prepares surfaces for polishing and sealing treatments.",
   },
@@ -160,7 +139,7 @@ export default function Services() {
 
   return (
     <section id="our-services" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Grey-touched background with subtle texture */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#f0f0f0] via-[#e5e5e5] to-[#f0f0f0]">
         <div className="absolute inset-0 bg-gradient-to-r from-[#c59d5f]/5 via-transparent to-[#00675b]/5 animate-gradient-x" />
         <FloatingParticles />
@@ -198,28 +177,28 @@ export default function Services() {
               )}
               onClick={() => setActiveService(service)}
             >
-              <div className="relative h-full p-6 rounded-2xl backdrop-blur-sm border border-gray-300/30 bg-white/90 hover:bg-white transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#c59d5f]/20 to-[#00675b]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-                <div
-                  className={`relative w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-br ${service.color} group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                >
-                  <service.icon className="h-8 w-8 text-[#495057] group-hover:text-white transition-colors duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Simple card with clean hover effect */}
+              <div className={cn(
+                "h-full p-6 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
+                service.hoverBg
+              )}>
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-br from-[#c59d5f] to-[#e7c992] group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 text-[#2c2c2c] font-['Sora'] group-hover:text-white transition-colors duration-300">
+                {/* Title - Always visible */}
+                <h3 className="text-xl font-bold mb-3 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
                   {service.title}
                 </h3>
 
-                <p className={cn(
-                  "mb-6 font-['DM_Sans'] leading-relaxed transition-colors duration-300",
-                  service.textColor,
-                  "group-hover:" + service.hoverTextColor
-                )}>
+                {/* Description - Always visible */}
+                <p className="text-[#6c757d] group-hover:text-white/90 mb-6 font-['DM_Sans'] leading-relaxed transition-colors duration-300">
                   {service.description}
                 </p>
 
-                <div className="flex items-center text-[#c59d5f] group-hover:text-white transition-colors duration-300">
+                {/* Learn more link - Always visible */}
+                <div className="flex items-center text-[#c59d5f] group-hover:text-white/90 transition-colors duration-300">
                   <span className="text-sm font-medium">Learn more</span>
                   <svg
                     className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -230,72 +209,79 @@ export default function Services() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-
-                <div className={`absolute inset-0 ${service.gradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 pointer-events-none`} />
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Light Modal */}
       {activeService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
           <div
-            className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-white/20 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl"
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
-              <div
-                className={`w-full h-full bg-gradient-to-br ${activeService.color} relative flex items-center justify-center`}
-              >
-                <activeService.icon className="h-20 w-20 text-white animate-pulse" />
-                <div className="absolute inset-0">
-                  {[...Array(15)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                      }}
-                    />
-                  ))}
-                </div>
+            {/* Modal Header with gradient */}
+            <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#c59d5f] to-[#e7c992] flex items-center justify-center">
+              <activeService.icon className="h-20 w-20 text-white animate-pulse" />
+              
+              {/* Floating particles in header */}
+              <div className="absolute inset-0">
+                {[...Array(10)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 3}s`,
+                    }}
+                  />
+                ))}
               </div>
+
+              {/* Close button */}
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full backdrop-blur-sm"
+                className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm"
                 onClick={() => setActiveService(null)}
               >
                 <X className="h-5 w-5" />
               </Button>
             </div>
 
+            {/* Modal Content */}
             <div className="p-6">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-['Sora']">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#2c2c2c] font-['Sora']">
                 {activeService.title}
               </h3>
 
-              <p className="text-white/80 mb-6 font-['DM_Sans']">{activeService.details}</p>
+              <p className="text-[#495057] mb-6 font-['DM_Sans'] leading-relaxed text-lg">
+                {activeService.details}
+              </p>
 
-              <div className="space-y-4">
-                <h4 className="font-bold text-white">Process:</h4>
-                <ul className="list-disc pl-5 space-y-2 text-white/70">
-                  <li>Initial assessment and surface evaluation</li>
-                  <li>Professional preparation and cleaning</li>
-                  <li>Specialized treatment application</li>
-                  <li>Quality inspection and finishing</li>
-                </ul>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-bold text-[#2c2c2c] text-lg mb-3">Process:</h4>
+                  <ul className="list-disc pl-5 space-y-2 text-[#6c757d]">
+                    <li>Initial assessment and surface evaluation</li>
+                    <li>Professional preparation and cleaning</li>
+                    <li>Specialized treatment application</li>
+                    <li>Quality inspection and finishing</li>
+                  </ul>
+                </div>
 
-                <h4 className="font-bold text-white mt-6">Benefits:</h4>
-                <ul className="list-disc pl-5 space-y-2 text-white/70">
-                  <li>Extends the life of your marble surfaces</li>
-                  <li>Enhances natural beauty and elegance</li>
-                  <li>Increases property value significantly</li>
-                  <li>Easier maintenance and long-term care</li>
-                </ul>
+                <div>
+                  <h4 className="font-bold text-[#2c2c2c] text-lg mb-3">Benefits:</h4>
+                  <ul className="list-disc pl-5 space-y-2 text-[#6c757d]">
+                    <li>Extends the life of your marble surfaces</li>
+                    <li>Enhances natural beauty and elegance</li>
+                    <li>Increases property value significantly</li>
+                    <li>Easier maintenance and long-term care</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="mt-8 flex justify-end">
@@ -304,7 +290,7 @@ export default function Services() {
                     setActiveService(null)
                     document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-6 shadow-lg hover:shadow-[#c59d5f]/40 transition-all duration-300"
+                  className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-lg"
                 >
                   Book This Service
                 </Button>
@@ -315,4 +301,4 @@ export default function Services() {
       )}
     </section>
   )
-}
+              }
