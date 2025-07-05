@@ -1,9 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { X } from "lucide-react"
+import { useEffect, useState, useRef } from "react" import { X } from "lucide-react" import { Button } from "@/components/ui/button" import { cn } from "@/lib/utils"
 
+const ServiceModal = ({ service, onClose }) => { const videoRef = useRef(null)
 const services = [
   {
     id: "marble-restoration",
@@ -187,152 +186,100 @@ const services = [
     ],
   },
 ]
-export const ServiceModal = ({ service, onClose }: ServiceModalProps) => {
-  const videoRef = useRef<HTMLVideoElement>(null)
+useEffect(() => { document.body.style.overflow = "hidden" const video = videoRef.current if (video) { video.muted = true video.loop = true video.autoplay = true video.playsInline = true video.preload = "auto" video.play().catch(() => {}) } return () => { document.body.style.overflow = "" if (video) video.pause() } }, [service])
 
-  // Lock background scroll and play video on open
-  useEffect(() => {
-    document.body.style.overflow = "hidden"
-    const video = videoRef.current
-    if (video) {
-      video.muted = true
-      video.loop = true
-      video.autoplay = true
-      video.playsInline = true
-      video.preload = "auto"
-      video.play().catch(() => {})
-    }
-    return () => {
-      document.body.style.overflow = ""
-      if (video) video.pause()
-    }
-  }, [service])
+return ( <div
+className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6 bg-black/80 backdrop-blur-sm"
+onClick={onClose}
+> <div className="relative bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden" style={{ maxHeight: "92vh" }} onClick={e => e.stopPropagation()} > <Button
+variant="ghost"
+size="icon"
+className="absolute top-4 right-4 bg-white text-black rounded-full z-10"
+onClick={onClose}
+aria-label="Close modal"
+> <X className="h-6 w-6" /> </Button>
 
-  return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-6 bg-black/80 backdrop-blur-[2px] transition-all duration-300"
-      onClick={onClose}
-    >
-      <div
-        className="relative bg-gradient-to-br from-white via-[#fcf7ee] to-[#f5f9f6] rounded-3xl w-full max-w-md md:max-w-3xl shadow-2xl border border-gray-100/80 flex flex-col ring-2 ring-[#c59d5f]/5"
-        style={{ maxHeight: "92vh" }}
-        onClick={e => e.stopPropagation()}
-      >
-        {/* Close Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-4 right-4 bg-white/90 hover:bg-[#f5f9f6] text-[#2c2c2c] rounded-full backdrop-blur z-10 shadow"
-          onClick={onClose}
-          aria-label="Close modal"
-        >
-          <X className="h-6 w-6" />
-        </Button>
+{/* Media Grid */}
+    <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+      {/* Video */}
+      <div className="aspect-square w-full md:w-[340px] flex-shrink-0 rounded-xl overflow-hidden bg-black">
+        <video
+          ref={videoRef}
+          src={service.videoUrl}
+          poster={service.serviceImages[0]}
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        {/* Responsive Media Layout */}
-        <div className="w-full flex flex-col md:flex-row gap-5 p-4 pb-0">
-          {/* Video (1:1 box, smaller for mobile) */}
-          <div className="flex-shrink-0 w-full md:w-[340px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-2xl border-2 border-[#c59d5f]/10">
-            <video
-              ref={videoRef}
-              src={service.videoUrl}
-              poster={service.serviceImages[0]}
-              muted
-              loop
-              autoPlay
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
-              style={{ aspectRatio: "1/1" }}
-            />
+      {/* Images */}
+      <div className="hidden md:flex md:flex-col gap-3 w-[100px]">
+        {service.serviceImages.slice(0, 3).map((img, idx) => (
+          <div key={idx} className="w-full aspect-square overflow-hidden rounded-md border">
+            <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
           </div>
-          {/* Images */}
-          <div className="w-full md:w-32 flex flex-col md:flex-col gap-3 md:gap-4">
-            {/* Desktop: column, Mobile: row below video */}
-            <div className="hidden md:flex flex-col gap-4 h-full justify-center">
-              {service.serviceImages.slice(0, 3).map((img: string, idx: number) => (
-                <div
-                  key={idx}
-                  className="w-full aspect-square rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-[#c59d5f]/10 to-[#e7c992]/10 flex items-center justify-center border border-[#c59d5f]/10"
-                >
-                  <img
-                    src={img}
-                    alt={`${service.title} image ${idx + 1}`}
-                    className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-            {/* Mobile: 3 images in row under video */}
-            <div className="flex md:hidden flex-row gap-3 w-full justify-center items-center mt-3">
-              {service.serviceImages.slice(0, 3).map((img: string, idx: number) => (
-                <div
-                  key={idx}
-                  className="w-1/3 aspect-square rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-[#c59d5f]/10 to-[#e7c992]/10 flex items-center justify-center border border-[#c59d5f]/10"
-                >
-                  <img
-                    src={img}
-                    alt={`${service.title} image ${idx + 1}`}
-                    className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white/90 rounded-b-3xl shadow-inner">
-          <h3 className="text-xl md:text-2xl font-bold mb-2 text-[#1b1b1b] font-['Sora'] tracking-tight">
-            <span className="inline-block bg-gradient-to-r from-[#c59d5f] via-[#e7c992] to-[#00675b] bg-clip-text text-transparent">
-              {service.title}
-            </span>
-          </h3>
-          <p className="text-[#495057] mb-4 font-['DM_Sans'] italic">{service.videoDescription}</p>
-          <div className="space-y-4">
-            <h4 className="font-bold text-[#2c2c2c]">Service Details:</h4>
-            <p className="text-[#6c757d] text-sm">{service.details}</p>
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-semibold text-[#2c2c2c] mb-2">Process Highlights:</h5>
-                <ul className="list-disc pl-5 space-y-1 text-[#6c757d] text-sm">
-                  {service.processHighlights.map((highlight: string, idx: number) => (
-                    <li key={idx} className="font-medium">{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-[#2c2c2c] mb-2">Key Benefits:</h5>
-                <ul className="list-disc pl-5 space-y-1 text-[#6c757d] text-sm">
-                  {service.keyBenefits.map((benefit: string, idx: number) => (
-                    <li key={idx} className="font-medium">{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 flex flex-col space-y-3">
-            <Button
-              onClick={() => {
-                onClose()
-                document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
-              }}
-              className="w-full bg-gradient-to-r from-[#c59d5f] via-[#e7c992] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-6 shadow-lg hover:shadow-2xl transition-all duration-300 font-bold tracking-wide"
-            >
-              Book This Service
-            </Button>
-            <Button
-              variant="outline"
-              onClick={onClose}
-              className="w-full border-gray-300 text-[#6c757d] hover:bg-gray-100 rounded-full px-6 bg-transparent"
-            >
-              Close
-            </Button>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  )
-}
+
+    {/* Mobile Image Row */}
+    <div className="flex md:hidden gap-2 px-4 pt-2">
+      {service.serviceImages.slice(0, 3).map((img, idx) => (
+        <div key={idx} className="w-1/3 aspect-square overflow-hidden rounded-md border">
+          <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
+        </div>
+      ))}
+    </div>
+
+    {/* Content */}
+    <div className="overflow-y-auto p-4 md:p-6 bg-white">
+      <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
+        {service.title}
+      </h3>
+      <p className="italic text-gray-600 mb-4">{service.videoDescription}</p>
+      <h4 className="font-semibold text-black mb-1">Service Details:</h4>
+      <p className="text-sm text-gray-700 mb-4">{service.details}</p>
+
+      <h5 className="font-semibold text-black mb-2">Process Highlights:</h5>
+      <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
+        {service.processHighlights.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+
+      <h5 className="font-semibold text-black mb-2">Key Benefits:</h5>
+      <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
+        {service.keyBenefits.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+
+      <div className="mt-6 flex flex-col gap-2">
+        <Button
+          onClick={() => {
+            onClose()
+            document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
+          }}
+          className="w-full bg-gradient-to-r from-yellow-500 to-teal-600 text-white rounded-full"
+        >
+          Book This Service
+        </Button>
+        <Button
+          variant="outline"
+          onClick={onClose}
+          className="w-full border-gray-300 text-gray-700 rounded-full"
+        >
+          Close
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+) }
+
+export default ServiceModal;
