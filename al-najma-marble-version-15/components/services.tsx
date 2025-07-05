@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Sparkles, Droplets, Shield, X, Wrench, Brush, Zap } from "lucide-react"
+import { Sparkles, Droplets, Shield, X, Wrench, Brush, Zap, Play, Pause, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
+// Full service data with images, video, and bullet points
 const services = [
   {
     id: "marble-restoration",
@@ -15,6 +16,27 @@ const services = [
     hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
     details:
       "Our marble restoration process includes crack repair, stain removal, surface leveling, and complete refinishing to restore your marble's natural elegance.",
+    videoUrl: "/videos/s21.mp4",
+    videoPoster: "/images/s1.jpg",
+    videoDescription:
+      "Watch our expert team restore damaged marble to its original pristine condition using advanced restoration techniques.",
+    serviceImages: [
+      "/images/s2.jpg",
+      "/images/s3.jpg",
+      "/images/s4.jpg",
+    ],
+    processHighlights: [
+      "Comprehensive damage assessment and analysis",
+      "Specialized crack filling with color-matched compounds",
+      "Surface grinding and leveling techniques",
+      "Multi-stage restoration with premium materials",
+    ],
+    keyBenefits: [
+      "Restores marble to original condition",
+      "Eliminates cracks, chips, and surface damage",
+      "Extends marble lifespan by decades",
+      "Cost-effective alternative to replacement",
+    ],
   },
   {
     id: "marble-shining",
@@ -25,6 +47,23 @@ const services = [
     hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
     details:
       "Using advanced diamond polishing compounds and techniques, we restore the mirror-like finish that makes marble surfaces truly spectacular.",
+    videoUrl: "/videos/s22.mp4",
+    videoPoster: "/images/s5.jpg",
+    videoDescription:
+      "See the incredible transformation as we bring back the mirror-like shine to dull marble surfaces.",
+    serviceImages: ["/images/s6.jpg", "/images/s7.jpg", "/images/s8.jpg"],
+    processHighlights: [
+      "Diamond powder polishing compounds application",
+      "Progressive grit sequence for optimal shine",
+      "High-speed buffing with professional equipment",
+      "Final crystallization for lasting brilliance",
+    ],
+    keyBenefits: [
+      "Achieves mirror-like reflective finish",
+      "Enhances natural marble patterns and colors",
+      "Creates stunning visual impact",
+      "Professional showroom-quality results",
+    ],
   },
   {
     id: "marble-grouting",
@@ -35,6 +74,23 @@ const services = [
     hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
     details:
       "Professional grouting with premium sealants that protect your marble joints from water damage, staining, and deterioration.",
+    videoUrl: "/videos/s23.mp4",
+    videoPoster: "/images/s9.jpg",
+    videoDescription:
+      "Learn about our precision grouting techniques that ensure long-lasting protection and perfect finishes.",
+    serviceImages: ["/images/s10.jpg", "/images/s11.jpg", "/images/s12.jpg"],
+    processHighlights: [
+      "Premium epoxy and cement-based grout selection",
+      "Precision application with professional tools",
+      "Color-matching for seamless integration",
+      "Waterproof sealing for maximum protection",
+    ],
+    keyBenefits: [
+      "Prevents water damage and moisture infiltration",
+      "Maintains structural integrity of installation",
+      "Easy maintenance and cleaning",
+      "Long-lasting protection for years",
+    ],
   },
   {
     id: "marble-fixing",
@@ -45,6 +101,27 @@ const services = [
     hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#00675b]",
     details:
       "Expert installation services ensuring perfect alignment, proper support, and long-lasting durability for all marble applications.",
+    videoUrl: "/videos/s24.mp4",
+    videoPoster: "/images/s13.jpg",
+    videoDescription:
+      "Watch our skilled craftsmen install marble with precision, ensuring perfect alignment and lasting beauty.",
+    serviceImages: [
+      "/images/s14.jpg",
+      "/images/s15.jpg",
+      "/images/s16.jpg",
+    ],
+    processHighlights: [
+      "Precise measurement and template creation",
+      "Professional cutting and edge finishing",
+      "Structural support assessment and reinforcement",
+      "Perfect leveling and alignment techniques",
+    ],
+    keyBenefits: [
+      "Flawless installation with perfect joints",
+      "Structural integrity and long-term stability",
+      "Custom fitting for any space or design",
+      "Professional craftsmanship guarantee",
+    ],
   },
   {
     id: "marble-polishing",
@@ -55,28 +132,295 @@ const services = [
     hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
     details:
       "Multi-stage polishing process using diamond pads and compounds to achieve the perfect mirror finish on all marble surfaces.",
-  },
-  {
-    id: "marble-cleaning",
-    title: "Marble Cleaning",
-    description:
-      "Specialized cleaning services using marble-safe products and techniques to maintain the beauty and integrity of your surfaces.",
-    icon: Droplets,
-    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
-    details:
-      "Safe, effective cleaning methods that remove dirt, grime, and stains without damaging the marble's natural structure.",
-  },
-  {
-    id: "deep-cleaning",
-    title: "Deep Cleaning",
-    description:
-      "Intensive deep cleaning services that penetrate marble pores to remove embedded dirt, stains, and restore original appearance.",
-    icon: Shield,
-    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
-    details:
-      "Comprehensive deep cleaning process that removes years of buildup and prepares surfaces for polishing and sealing treatments.",
+    videoUrl: "/videos/s25.mp4",
+    videoPoster: "/images/s17.jpg",
+    videoDescription:
+      "Experience our multi-stage diamond polishing process that creates stunning mirror-like finishes.",
+    serviceImages: [
+      "/images/s18.jpg",
+      "/images/s19.jpg",
+      "/images/s20.jpg",
+    ],
+    processHighlights: [
+      "Multi-stage diamond pad progression (50-3000 grit)",
+      "Wet polishing technique for dust-free operation",
+      "Professional-grade polishing machines",
+      "Final buffing for maximum gloss retention",
+    ],
+    keyBenefits: [
+      "Achieves high-gloss mirror finish",
+      "Removes scratches and surface imperfections",
+      "Enhances marble's natural beauty",
+      "Increases surface durability and longevity",
+    ],
   },
 ]
+
+// Video Player Modal with Image Carousel and Bullet Points
+const ServiceModal = ({ service, onClose }) => {
+  const videoRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
+  const [progress, setProgress] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handleLoadedData = () => {
+      setIsLoading(false)
+      setDuration(video.duration)
+    }
+
+    const handleTimeUpdate = () => {
+      setCurrentTime(video.currentTime)
+      setProgress((video.currentTime / video.duration) * 100)
+    }
+
+    const handleEnded = () => {
+      setIsPlaying(false)
+    }
+
+    video.addEventListener("loadeddata", handleLoadedData)
+    video.addEventListener("timeupdate", handleTimeUpdate)
+    video.addEventListener("ended", handleEnded)
+
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData)
+      video.removeEventListener("timeupdate", handleTimeUpdate)
+      video.removeEventListener("ended", handleEnded)
+    }
+  }, [])
+
+  // Auto-rotate service images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % service.serviceImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [service.serviceImages.length])
+
+  const togglePlay = () => {
+    const video = videoRef.current
+    if (video.paused) {
+      video.play()
+      setIsPlaying(true)
+    } else {
+      video.pause()
+      setIsPlaying(false)
+    }
+  }
+
+  const toggleMute = () => {
+    const video = videoRef.current
+    video.muted = !video.muted
+    setIsMuted(video.muted)
+  }
+
+  const handleProgressClick = (e) => {
+    const video = videoRef.current
+    const rect = e.currentTarget.getBoundingClientRect()
+    const clickX = e.clientX - rect.left
+    const newTime = (clickX / rect.width) * duration
+    video.currentTime = newTime
+  }
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60)
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div
+        className="bg-white rounded-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-gray-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Modal Header with gradient and icon */}
+        <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#c59d5f] to-[#e7c992] flex items-center justify-center">
+          <service.icon className="h-20 w-20 text-white animate-pulse" />
+          {/* Floating particles in header */}
+          <div className="absolute inset-0">
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                }}
+              />
+            ))}
+          </div>
+          {/* Close button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm"
+            onClick={onClose}
+          >
+            <X className="h-5 w-5" />
+          </Button>
+        </div>
+
+        {/* Modal Content */}
+        <div className="flex flex-col md:flex-row max-h-[calc(95vh-80px)] overflow-hidden">
+          {/* Video Section */}
+          <div className="md:w-2/3 relative bg-black">
+            <video
+              ref={videoRef}
+              className="w-full aspect-video"
+              poster={service.videoPoster || "/placeholder.svg?height=400&width=800"}
+              muted={isMuted}
+              playsInline
+            >
+              <source src={service.videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Loading Overlay */}
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <p className="text-white text-sm">Loading video...</p>
+                </div>
+              </div>
+            )}
+
+            {/* Play Button Overlay */}
+            {!isLoading && !isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Button
+                  onClick={togglePlay}
+                  className="w-16 h-16 rounded-full bg-white/90 hover:bg-white text-[#495057] shadow-lg"
+                >
+                  <Play className="h-8 w-8 ml-1" />
+                </Button>
+              </div>
+            )}
+
+            {/* Video Controls */}
+            {!isLoading && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                {/* Progress Bar */}
+                <div className="w-full h-2 bg-white/30 rounded-full cursor-pointer mb-3" onClick={handleProgressClick}>
+                  <div
+                    className="h-full bg-white rounded-full transition-all duration-200"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+
+                {/* Control Buttons */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={togglePlay}
+                      className="text-white hover:bg-white/20 rounded-full"
+                    >
+                      {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={toggleMute}
+                      className="text-white hover:bg-white/20 rounded-full"
+                    >
+                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                    </Button>
+                    <span className="text-white text-sm">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Content Section */}
+          <div className="md:w-1/3 p-6 overflow-y-auto bg-white">
+            {/* Service Images Carousel */}
+            <div className="mb-6">
+              <div className="relative h-48 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src={service.serviceImages[currentImageIndex] || "/placeholder.svg?height=200&width=400"}
+                  alt={`${service.title} process ${currentImageIndex + 1}`}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                />
+                <div className="absolute bottom-2 left-2 right-2 flex justify-center space-x-2">
+                  {service.serviceImages.map((_, index) => (
+                    <button
+                      key={index}
+                      className={cn(
+                        "w-2 h-2 rounded-full transition-all duration-300",
+                        index === currentImageIndex ? "bg-[#c59d5f]" : "bg-[#c59d5f]/40",
+                      )}
+                      onClick={() => setCurrentImageIndex(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Video Description */}
+            <p className="text-[#495057] mb-4 font-['DM_Sans']">{service.videoDescription}</p>
+
+            <div className="space-y-4">
+              <h4 className="font-bold text-[#2c2c2c]">Service Details:</h4>
+              <p className="text-[#6c757d] text-sm">{service.details}</p>
+
+              <div className="space-y-4">
+                <div>
+                  <h5 className="font-semibold text-[#2c2c2c] mb-2">Process Highlights:</h5>
+                  <ul className="list-disc pl-5 space-y-1 text-[#6c757d] text-sm">
+                    {service.processHighlights.map((highlight, index) => (
+                      <li key={index}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-[#2c2c2c] mb-2">Key Benefits:</h5>
+                  <ul className="list-disc pl-5 space-y-1 text-[#6c757d] text-sm">
+                    {service.keyBenefits.map((benefit, index) => (
+                      <li key={index}>{benefit}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col space-y-3">
+              <Button
+                onClick={() => {
+                  onClose()
+                  document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="w-full bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Book This Service
+              </Button>
+              <Button
+                variant="outline"
+                onClick={onClose}
+                className="w-full border-gray-300 text-[#6c757d] hover:bg-gray-100 rounded-full px-6 bg-transparent"
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const FloatingParticles = () => {
   return (
@@ -177,7 +521,7 @@ export default function Services() {
               )}
               onClick={() => setActiveService(service)}
             >
-              {/* Simple card with clean hover effect */}
+              {/* Card with hover effect */}
               <div className={cn(
                 "h-full p-6 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
                 service.hoverBg
@@ -187,19 +531,20 @@ export default function Services() {
                   <service.icon className="h-8 w-8 text-white" />
                 </div>
 
-                {/* Title - Always visible */}
+                {/* Title */}
                 <h3 className="text-xl font-bold mb-3 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
                   {service.title}
                 </h3>
 
-                {/* Description - Always visible */}
+                {/* Description */}
                 <p className="text-[#6c757d] group-hover:text-white/90 mb-6 font-['DM_Sans'] leading-relaxed transition-colors duration-300">
                   {service.description}
                 </p>
 
-                {/* Learn more link - Always visible */}
+                {/* Watch video button */}
                 <div className="flex items-center text-[#c59d5f] group-hover:text-white/90 transition-colors duration-300">
-                  <span className="text-sm font-medium">Learn more</span>
+                  <Play className="mr-2 h-4 w-4" />
+                  <span className="text-sm font-medium">Watch Demo</span>
                   <svg
                     className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
@@ -215,90 +560,13 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Light Modal */}
+      {/* Modal with video, images, and bullet points */}
       {activeService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div
-            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl border border-gray-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header with gradient */}
-            <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#c59d5f] to-[#e7c992] flex items-center justify-center">
-              <activeService.icon className="h-20 w-20 text-white animate-pulse" />
-              
-              {/* Floating particles in header */}
-              <div className="absolute inset-0">
-                {[...Array(10)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${Math.random() * 3}s`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Close button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm"
-                onClick={() => setActiveService(null)}
-              >
-                <X className="h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#2c2c2c] font-['Sora']">
-                {activeService.title}
-              </h3>
-
-              <p className="text-[#495057] mb-6 font-['DM_Sans'] leading-relaxed text-lg">
-                {activeService.details}
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-bold text-[#2c2c2c] text-lg mb-3">Process:</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-[#6c757d]">
-                    <li>Initial assessment and surface evaluation</li>
-                    <li>Professional preparation and cleaning</li>
-                    <li>Specialized treatment application</li>
-                    <li>Quality inspection and finishing</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-[#2c2c2c] text-lg mb-3">Benefits:</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-[#6c757d]">
-                    <li>Extends the life of your marble surfaces</li>
-                    <li>Enhances natural beauty and elegance</li>
-                    <li>Increases property value significantly</li>
-                    <li>Easier maintenance and long-term care</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-8 flex justify-end">
-                <Button
-                  onClick={() => {
-                    setActiveService(null)
-                    document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                  className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-lg"
-                >
-                  Book This Service
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ServiceModal
+          service={activeService}
+          onClose={() => setActiveService(null)}
+        />
       )}
     </section>
   )
-              }
+}
