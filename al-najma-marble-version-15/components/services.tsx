@@ -5,7 +5,6 @@ import { Sparkles, Droplets, Shield, X, Wrench, Brush, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-// ----------- SERVICES DATA -----------
 const services = [
   {
     id: "marble-restoration",
@@ -190,11 +189,9 @@ const services = [
   },
 ]
 
-// ----------- MODAL COMPONENT -----------
 const ServiceModal = ({ service, onClose }) => {
   const videoRef = useRef(null)
 
-  // Lock background scroll and play video on open
   useEffect(() => {
     document.body.style.overflow = "hidden"
     const video = videoRef.current
@@ -234,23 +231,27 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Responsive Media Grid */}
-        <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
-          {/* Video 1:1 box, smaller than before */}
-          <div className="flex-shrink-0 w-full md:w-[220px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
-            <video
-              ref={videoRef}
-              src={service.videoUrl}
-              poster={service.serviceImages[0]}
-              muted
-              loop
-              autoPlay
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
-            />
+        <div className="flex flex-col md:flex-row gap-6 p-4 pb-0">
+          {/* Video 1:1 box with margin on desktop */}
+          <div className="w-full md:w-1/2 flex justify-center items-center">
+            <div className="bg-black rounded-xl shadow-lg p-2 md:p-4" style={{ width: "100%", maxWidth: 260 }}>
+              <div className="aspect-square w-full rounded-xl overflow-hidden">
+                <video
+                  ref={videoRef}
+                  src={service.videoUrl}
+                  poster={service.serviceImages[0]}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
+                />
+              </div>
+            </div>
           </div>
-          {/* Images: row on mobile, column on desktop, spaced */}
-          <div className="flex md:flex-col flex-row gap-2 md:gap-3 md:w-[100px] w-full justify-between items-center md:items-stretch">
+          {/* Images: row on mobile, column on desktop, with gap and margin */}
+          <div className="w-full md:w-1/2 flex md:flex-col flex-row gap-2 md:gap-4 justify-between items-center md:items-stretch">
             {service.serviceImages.slice(0, 3).map((img, idx) => (
               <div key={idx} className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
                 <img
@@ -347,7 +348,6 @@ export default function Services() {
   const sectionRef = useRef(null)
   const cardRefs = useRef([])
 
-  // Animate cards on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -446,4 +446,4 @@ export default function Services() {
       {activeService && <ServiceModal service={activeService} onClose={() => setActiveService(null)} />}
     </section>
   )
-                }
+}
