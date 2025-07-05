@@ -234,9 +234,19 @@ const ServiceModal = ({ service, onClose }) => {
 
         {/* Responsive Media Grid */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 p-4 pb-0">
-          {/* Video 1:1 box, left side, with margin and shadow */}
-          <div className="w-full md:w-1/2 flex justify-center items-center">
-            <div className="bg-black/80 rounded-2xl shadow-xl p-2 md:p-4" style={{ width: "100%", maxWidth: 320 }}>
+          {/* Video: left, with margin and shadow, large width */}
+          <div className="w-full md:w-[60%] flex justify-start items-center">
+            <div className="bg-black/70 rounded-2xl shadow-xl p-2 md:p-4 mx-auto md:ml-0 md:mr-0"
+              style={{
+                width: "100%",
+                maxWidth: 350,
+                marginLeft: "0",
+                marginRight: "auto",
+                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.13)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                backdropFilter: "blur(3px)",
+              }}
+            >
               <div className="aspect-square w-full rounded-xl overflow-hidden">
                 <video
                   ref={videoRef}
@@ -252,8 +262,8 @@ const ServiceModal = ({ service, onClose }) => {
               </div>
             </div>
           </div>
-          {/* Images: right side, column on desktop, row on mobile, always spaced */}
-          <div className="w-full md:w-1/2 flex md:flex-col flex-row gap-2 md:gap-4 justify-end md:justify-between items-center md:items-stretch">
+          {/* Images: right, column on desktop, row on mobile, always spaced */}
+          <div className="w-full md:w-[40%] flex md:flex-col flex-row gap-2 md:gap-4 justify-end md:justify-end items-center md:items-stretch">
             {service.serviceImages.slice(0, 3).map((img, idx) => (
               <div key={idx} className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
                 <img
