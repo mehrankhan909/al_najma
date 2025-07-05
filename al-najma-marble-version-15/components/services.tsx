@@ -19,7 +19,7 @@ const services = [
     videoUrl: "/videos/s21.mp4",
     videoDescription:
       "Watch our expert team restore damaged marble to its original pristine condition using advanced restoration techniques.",
-    serviceImages: ["/images/s2.jpg", "/images/s3.jpg", "/images/s4.jpg"],
+    serviceImages: ["/images/s2.jpg", "/images/s20.jpg", "/images/s4.jpg"],
     processHighlights: [
       "Comprehensive damage assessment and analysis",
       "Specialized crack filling with color-matched compounds",
@@ -45,7 +45,7 @@ const services = [
     videoUrl: "/videos/s22.mp4",
     videoDescription:
       "See the incredible transformation as we bring back the mirror-like shine to dull marble surfaces.",
-    serviceImages: ["/images/s6.jpg", "/images/s7.jpg", "/images/s8.jpg"],
+    serviceImages: ["/images/s19.jpg", "/images/s7.jpg", "/images/s8.jpg"],
     processHighlights: [
       "Diamond powder polishing compounds application",
       "Progressive grit sequence for optimal shine",
@@ -97,7 +97,7 @@ const services = [
     videoUrl: "/videos/s24.mp4",
     videoDescription:
       "Watch our skilled craftsmen install marble with precision, ensuring perfect alignment and lasting beauty.",
-    serviceImages: ["/images/s14.jpg", "/images/s15.jpg", "/images/s16.jpg"],
+    serviceImages: ["/images/s14.jpg", "/images/s18.jpg", "/images/s16.jpg"],
     processHighlights: [
       "Precise measurement and template creation",
       "Professional cutting and edge finishing",
@@ -123,7 +123,7 @@ const services = [
     videoUrl: "/videos/s25.mp4",
     videoDescription:
       "Experience our multi-stage diamond polishing process that creates stunning mirror-like finishes.",
-    serviceImages: ["/images/s18.jpg", "/images/s19.jpg", "/images/s20.jpg"],
+    serviceImages: ["/images/s6.jpg", "/images/s3.jpg", "/images/s15.jpg"],
     processHighlights: [
       "Multi-stage diamond pad progression (50-3000 grit)",
       "Wet polishing technique for dust-free operation",
