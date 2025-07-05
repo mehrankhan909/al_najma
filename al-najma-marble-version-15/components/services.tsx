@@ -5,7 +5,7 @@ import { Sparkles, Droplets, Shield, X, Wrench, Brush, Zap, Play, Pause, Volume2
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-// Full service data with images, video, and bullet points
+// Service data with images, video, and bullet points
 const services = [
   {
     id: "marble-restoration",
@@ -48,10 +48,10 @@ const services = [
     details:
       "Using advanced diamond polishing compounds and techniques, we restore the mirror-like finish that makes marble surfaces truly spectacular.",
     videoUrl: "/videos/s22.mp4",
-    videoPoster: "/images/s5.jpg",
+    videoPoster: "/images/marble-shining-poster.jpg",
     videoDescription:
       "See the incredible transformation as we bring back the mirror-like shine to dull marble surfaces.",
-    serviceImages: ["/images/s6.jpg", "/images/s7.jpg", "/images/s8.jpg"],
+    serviceImages: ["/images/shining-process.png", "/images/diamond-pads.png", "/images/mirror-finish-result.png"],
     processHighlights: [
       "Diamond powder polishing compounds application",
       "Progressive grit sequence for optimal shine",
@@ -75,10 +75,10 @@ const services = [
     details:
       "Professional grouting with premium sealants that protect your marble joints from water damage, staining, and deterioration.",
     videoUrl: "/videos/s23.mp4",
-    videoPoster: "/images/s9.jpg",
+    videoPoster: "/images/marble-grouting-poster.jpg",
     videoDescription:
       "Learn about our precision grouting techniques that ensure long-lasting protection and perfect finishes.",
-    serviceImages: ["/images/s10.jpg", "/images/s11.jpg", "/images/s12.jpg"],
+    serviceImages: ["/images/grouting-application.png", "/images/grout-lines-perfect.png", "/images/sealed-joints.png"],
     processHighlights: [
       "Premium epoxy and cement-based grout selection",
       "Precision application with professional tools",
@@ -102,13 +102,13 @@ const services = [
     details:
       "Expert installation services ensuring perfect alignment, proper support, and long-lasting durability for all marble applications.",
     videoUrl: "/videos/s24.mp4",
-    videoPoster: "/images/s13.jpg",
+    videoPoster: "/images/marble-fixing-poster.jpg",
     videoDescription:
       "Watch our skilled craftsmen install marble with precision, ensuring perfect alignment and lasting beauty.",
     serviceImages: [
-      "/images/s14.jpg",
-      "/images/s15.jpg",
-      "/images/s16.jpg",
+      "/images/installation-process.png",
+      "/images/precision-cutting.png",
+      "/images/perfect-alignment.png",
     ],
     processHighlights: [
       "Precise measurement and template creation",
@@ -133,13 +133,13 @@ const services = [
     details:
       "Multi-stage polishing process using diamond pads and compounds to achieve the perfect mirror finish on all marble surfaces.",
     videoUrl: "/videos/s25.mp4",
-    videoPoster: "/images/s17.jpg",
+    videoPoster: "/images/marble-polishing-poster.jpg",
     videoDescription:
       "Experience our multi-stage diamond polishing process that creates stunning mirror-like finishes.",
     serviceImages: [
-      "/images/s18.jpg",
-      "/images/s19.jpg",
-      "/images/s20.jpg",
+      "/images/polishing-machine.png",
+      "/images/diamond-polishing-pads.png",
+      "/images/polished-marble-floor.png",
     ],
     processHighlights: [
       "Multi-stage diamond pad progression (50-3000 grit)",
@@ -152,6 +152,63 @@ const services = [
       "Removes scratches and surface imperfections",
       "Enhances marble's natural beauty",
       "Increases surface durability and longevity",
+    ],
+  },
+  {
+    id: "marble-cleaning",
+    title: "Marble Cleaning",
+    description:
+      "Specialized cleaning services using marble-safe products and techniques to maintain the beauty and integrity of your surfaces.",
+    icon: Droplets,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
+    details:
+      "Safe, effective cleaning methods that remove dirt, grime, and stains without damaging the marble's natural structure.",
+    videoUrl: "/videos/s26.mp4",
+    videoPoster: "/images/marble-cleaning-poster.jpg",
+    videoDescription:
+      "Discover our safe and effective cleaning methods that preserve marble while removing stubborn stains.",
+    serviceImages: ["/images/cleaning-products.png", "/images/stain-removal.png", "/images/clean-marble-surface.png"],
+    processHighlights: [
+      "pH-neutral marble-safe cleaning solutions",
+      "Specialized stain removal techniques",
+      "Gentle scrubbing with soft-bristle brushes",
+      "Thorough rinsing and drying procedures",
+    ],
+    keyBenefits: [
+      "Preserves marble's natural composition",
+      "Removes stains without surface damage",
+      "Maintains original color and patterns",
+      "Safe for food preparation areas",
+    ],
+  },
+  {
+    id: "deep-cleaning",
+    title: "Deep Cleaning",
+    description:
+      "Intensive deep cleaning services that penetrate marble pores to remove embedded dirt, stains, and restore original appearance.",
+    icon: Shield,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
+    details:
+      "Comprehensive deep cleaning process that removes years of buildup and prepares surfaces for polishing and sealing treatments.",
+    videoUrl: "/videos/s27.mp4",
+    videoPoster: "/images/deep-cleaning-poster.jpg",
+    videoDescription: "See the dramatic before and after results of our intensive deep cleaning process.",
+    serviceImages: [
+      "/images/deep-cleaning-equipment.png",
+      "/images/before-after-cleaning.png",
+      "/images/steam-cleaning-process.png",
+    ],
+    processHighlights: [
+      "High-pressure steam cleaning technology",
+      "Specialized extraction of embedded contaminants",
+      "Industrial-grade cleaning equipment",
+      "Complete sanitization and deodorization",
+    ],
+    keyBenefits: [
+      "Removes years of accumulated dirt and grime",
+      "Prepares surface for optimal polishing results",
+      "Eliminates bacteria and allergens",
+      "Restores marble to near-original condition",
     ],
   },
 ]
@@ -241,36 +298,17 @@ const ServiceModal = ({ service, onClose }) => {
         className="bg-white rounded-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-gray-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header with gradient and icon */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#c59d5f] to-[#e7c992] flex items-center justify-center">
-          <service.icon className="h-20 w-20 text-white animate-pulse" />
-          {/* Floating particles in header */}
-          <div className="absolute inset-0">
-            {[...Array(10)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`,
-                }}
-              />
-            ))}
-          </div>
-          {/* Close button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm"
-            onClick={onClose}
-          >
-            <X className="h-5 w-5" />
-          </Button>
-        </div>
+        {/* Close button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-6 right-6 bg-white/80 hover:bg-white/90 text-[#2c2c2c] rounded-full backdrop-blur-sm z-10"
+          onClick={onClose}
+        >
+          <X className="h-5 w-5" />
+        </Button>
 
-        {/* Modal Content */}
-        <div className="flex flex-col md:flex-row max-h-[calc(95vh-80px)] overflow-hidden">
+        <div className="flex flex-col md:flex-row max-h-[calc(95vh-40px)] overflow-hidden">
           {/* Video Section */}
           <div className="md:w-2/3 relative bg-black">
             <video
