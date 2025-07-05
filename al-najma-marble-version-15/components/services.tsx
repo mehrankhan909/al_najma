@@ -211,6 +211,21 @@ const ServiceModal = ({ service, onClose }) => {
       if (video) video.pause()
     }
   }, [service])
+  useEffect(() => {
+  const video = videoRef.current;
+  if (!video) return;
+
+  const onWheel = (e) => {
+    e.preventDefault();
+    window.scrollBy({ top: e.deltaY, behavior: 'auto' });
+  };
+
+  video.addEventListener('wheel', onWheel, { passive: false });
+
+  return () => {
+    video.removeEventListener('wheel', onWheel);
+  };
+}, []);
 
   return (
     <div
