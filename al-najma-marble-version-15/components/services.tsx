@@ -242,31 +242,35 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Video */}
-        <div className="w-full flex-shrink-0 flex items-center justify-center bg-black rounded-t-2xl"
-          style={{
-            aspectRatio: "1 / 1",
-            maxHeight: "350px",
-            minHeight: "220px",
-            overflow: "hidden"
-          }}
-        >
-          <video
-            ref={videoRef}
-            src={service.videoUrl}
-            poster={service.serviceImages[0]}
-            muted
-            loop
-            autoPlay
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover rounded-t-2xl filter brightness-95 contrast-110 saturate-110 shadow-lg"
-            style={{
-              background: "#222",
-              maxHeight: "350px",
-              minHeight: "220px"
-            }}
-          />
-        </div>
+        // Inside ServiceModal component, replace the video container div with:
+
+<div
+  className="w-full flex-shrink-0 flex items-center justify-center bg-black rounded-t-2xl"
+  style={{
+    aspectRatio: "1 / 1",
+    maxHeight: "200px", // reduced from 350px to 200px
+    minHeight: "150px", // slightly smaller min height
+    overflow: "hidden",
+  }}
+>
+  <video
+    ref={videoRef}
+    src={service.videoUrl}
+    poster={service.serviceImages[0]}
+    muted
+    loop
+    autoPlay
+    playsInline
+    preload="auto"
+    className="w-full h-full object-cover rounded-t-2xl filter brightness-95 contrast-110 saturate-110 shadow-lg"
+    style={{
+      background: "#222",
+      maxHeight: "200px",
+      minHeight: "150px",
+    }}
+  />
+</div>
+
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white rounded-b-2xl">
