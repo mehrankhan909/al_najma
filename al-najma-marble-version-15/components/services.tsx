@@ -242,15 +242,16 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Video */}
-        // Inside ServiceModal component, replace the video container div with:
-
+       {/* Video container with box style */}
 <div
-  className="w-full flex-shrink-0 flex items-center justify-center bg-black rounded-t-2xl"
+  className="w-full flex-shrink-0 flex items-center justify-center rounded-t-2xl p-4 bg-black/80"
   style={{
     aspectRatio: "1 / 1",
-    maxHeight: "200px", // reduced from 350px to 200px
-    minHeight: "150px", // slightly smaller min height
-    overflow: "hidden",
+    maxWidth: "400px", // optional max width for desktop
+    margin: "0 auto", // center horizontally
+    maxHeight: "200px",
+    minHeight: "150px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)", // subtle shadow
   }}
 >
   <video
@@ -262,14 +263,14 @@ const ServiceModal = ({ service, onClose }) => {
     autoPlay
     playsInline
     preload="auto"
-    className="w-full h-full object-cover rounded-t-2xl filter brightness-95 contrast-110 saturate-110 shadow-lg"
+    className="w-full h-full object-cover rounded-lg filter brightness-95 contrast-110 saturate-110"
     style={{
       background: "#222",
-      maxHeight: "200px",
-      minHeight: "150px",
+      borderRadius: "12px",
     }}
   />
 </div>
+
 
 
         {/* Content */}
