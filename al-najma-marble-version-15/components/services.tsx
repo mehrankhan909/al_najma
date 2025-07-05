@@ -17,7 +17,6 @@ const services = [
     details:
       "Our marble restoration process includes crack repair, stain removal, surface leveling, and complete refinishing to restore your marble's natural elegance.",
     videoUrl: "/videos/s21.mp4",
-    videoPoster: "/images/s1.jpg",
     videoDescription:
       "Watch our expert team restore damaged marble to its original pristine condition using advanced restoration techniques.",
     serviceImages: [
@@ -48,10 +47,9 @@ const services = [
     details:
       "Using advanced diamond polishing compounds and techniques, we restore the mirror-like finish that makes marble surfaces truly spectacular.",
     videoUrl: "/videos/s22.mp4",
-    videoPoster: "/images/marble-shining-poster.jpg",
     videoDescription:
       "See the incredible transformation as we bring back the mirror-like shine to dull marble surfaces.",
-    serviceImages: ["/images/shining-process.png", "/images/diamond-pads.png", "/images/mirror-finish-result.png"],
+    serviceImages: ["/images/s6.jpg", "/images/s7.jpg", "/images/s8.jpg"],
     processHighlights: [
       "Diamond powder polishing compounds application",
       "Progressive grit sequence for optimal shine",
@@ -75,10 +73,9 @@ const services = [
     details:
       "Professional grouting with premium sealants that protect your marble joints from water damage, staining, and deterioration.",
     videoUrl: "/videos/s23.mp4",
-    videoPoster: "/images/marble-grouting-poster.jpg",
     videoDescription:
       "Learn about our precision grouting techniques that ensure long-lasting protection and perfect finishes.",
-    serviceImages: ["/images/grouting-application.png", "/images/grout-lines-perfect.png", "/images/sealed-joints.png"],
+    serviceImages: ["/images/s10.jpg", "/images/s11.jpg", "/images/s12.jpg"],
     processHighlights: [
       "Premium epoxy and cement-based grout selection",
       "Precision application with professional tools",
@@ -102,13 +99,12 @@ const services = [
     details:
       "Expert installation services ensuring perfect alignment, proper support, and long-lasting durability for all marble applications.",
     videoUrl: "/videos/s24.mp4",
-    videoPoster: "/images/marble-fixing-poster.jpg",
     videoDescription:
       "Watch our skilled craftsmen install marble with precision, ensuring perfect alignment and lasting beauty.",
     serviceImages: [
-      "/images/installation-process.png",
-      "/images/precision-cutting.png",
-      "/images/perfect-alignment.png",
+      "/images/s14.jpg",
+      "/images/s15.jpg",
+      "/images/s16.jpg",
     ],
     processHighlights: [
       "Precise measurement and template creation",
@@ -133,13 +129,12 @@ const services = [
     details:
       "Multi-stage polishing process using diamond pads and compounds to achieve the perfect mirror finish on all marble surfaces.",
     videoUrl: "/videos/s25.mp4",
-    videoPoster: "/images/marble-polishing-poster.jpg",
     videoDescription:
       "Experience our multi-stage diamond polishing process that creates stunning mirror-like finishes.",
     serviceImages: [
-      "/images/polishing-machine.png",
-      "/images/diamond-polishing-pads.png",
-      "/images/polished-marble-floor.png",
+      "/images/s18.jpg",
+      "/images/s19.jpg",
+      "/images/s20.jpg",
     ],
     processHighlights: [
       "Multi-stage diamond pad progression (50-3000 grit)",
@@ -164,10 +159,9 @@ const services = [
     details:
       "Safe, effective cleaning methods that remove dirt, grime, and stains without damaging the marble's natural structure.",
     videoUrl: "/videos/s26.mp4",
-    videoPoster: "/images/marble-cleaning-poster.jpg",
     videoDescription:
       "Discover our safe and effective cleaning methods that preserve marble while removing stubborn stains.",
-    serviceImages: ["/images/cleaning-products.png", "/images/stain-removal.png", "/images/clean-marble-surface.png"],
+    serviceImages: ["/images/s1.jpg", "/images/s5.jpg", "/images/s9.jpg"],
     processHighlights: [
       "pH-neutral marble-safe cleaning solutions",
       "Specialized stain removal techniques",
@@ -191,12 +185,11 @@ const services = [
     details:
       "Comprehensive deep cleaning process that removes years of buildup and prepares surfaces for polishing and sealing treatments.",
     videoUrl: "/videos/s27.mp4",
-    videoPoster: "/images/deep-cleaning-poster.jpg",
     videoDescription: "See the dramatic before and after results of our intensive deep cleaning process.",
     serviceImages: [
-      "/images/deep-cleaning-equipment.png",
-      "/images/before-after-cleaning.png",
-      "/images/steam-cleaning-process.png",
+      "/images/s13.jpg",
+      "/images/s17.jpg",
+      "/images/professional-cleaning.jpg,
     ],
     processHighlights: [
       "High-pressure steam cleaning technology",
