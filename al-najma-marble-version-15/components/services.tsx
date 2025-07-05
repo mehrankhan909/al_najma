@@ -234,9 +234,10 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Responsive Media Grid */}
-        <div className="flex flex-col md:flex-row md:items-end gap-6 p-4 pb-0">
-  {/* Video Box */}
-  <div className="flex-shrink-0 w-full md:w-[280px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
+        {/* Media layout for laptop screens */}
+<div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+  {/* Video with 16:9 aspect ratio */}
+  <div className="flex-1 aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-lg">
     <video
       ref={videoRef}
       src={service.videoUrl}
@@ -250,12 +251,12 @@ const ServiceModal = ({ service, onClose }) => {
     />
   </div>
 
-  {/* Images Column */}
-  <div className="flex md:flex-col flex-row gap-2 md:gap-3 md:w-[90px] w-full justify-between items-center md:items-stretch md:self-end">
+  {/* Vertical image column aligned to video height */}
+  <div className="hidden md:flex flex-col justify-between w-[100px]">
     {service.serviceImages.slice(0, 3).map((img, idx) => (
       <div
         key={idx}
-        className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
+        className="aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
       >
         <img
           src={img}
