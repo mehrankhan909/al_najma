@@ -5,6 +5,7 @@ import { Sparkles, Droplets, Shield, X, Wrench, Brush, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
+// ----------- SERVICES DATA -----------
 const services = [
   {
     id: "marble-restoration",
@@ -188,19 +189,9 @@ const services = [
     ],
   },
 ]
-
 // ----------- MODAL COMPONENT -----------
 const ServiceModal = ({ service, onClose }) => {
   const videoRef = useRef(null)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % service.serviceImages.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [service.serviceImages.length])
 
   // Lock background scroll and play video on open
   useEffect(() => {
@@ -226,7 +217,7 @@ const ServiceModal = ({ service, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-2xl w-full max-w-lg md:max-w-2xl lg:max-w-3xl shadow-2xl border border-gray-200 flex flex-col"
+        className="relative bg-white rounded-2xl w-full max-w-md md:max-w-3xl shadow-2xl border border-gray-200 flex flex-col"
         style={{ maxHeight: "90vh" }}
         onClick={e => e.stopPropagation()}
       >
@@ -241,65 +232,39 @@ const ServiceModal = ({ service, onClose }) => {
           <X className="h-5 w-5" />
         </Button>
 
-        {/* Video */}
-       {/* Video container with box style */}
-<div
-  className="w-full flex-shrink-0 flex items-center justify-center rounded-t-2xl p-4 bg-black/80"
-  style={{
-    aspectRatio: "1 / 1",
-    maxWidth: "400px", // optional max width for desktop
-    margin: "0 auto", // center horizontally
-    maxHeight: "200px",
-    minHeight: "150px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.3)", // subtle shadow
-  }}
->
-  <video
-    ref={videoRef}
-    src={service.videoUrl}
-    poster={service.serviceImages[0]}
-    muted
-    loop
-    autoPlay
-    playsInline
-    preload="auto"
-    className="w-full h-full object-cover rounded-lg filter brightness-95 contrast-110 saturate-110"
-    style={{
-      background: "#222",
-      borderRadius: "12px",
-    }}
-  />
-</div>
-
-
+        {/* Responsive Media Grid */}
+        <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+          {/* Video 1:1 box */}
+          <div className="flex-shrink-0 w-full md:w-[340px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
+            <video
+              ref={videoRef}
+              src={service.videoUrl}
+              poster={service.serviceImages[0]}
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
+            />
+          </div>
+          {/* Images: row on mobile, column on desktop */}
+          <div className="flex md:flex-col flex-row gap-3 md:gap-4 md:w-32 w-full justify-center items-center md:items-stretch">
+            {service.serviceImages.slice(0, 3).map((img, idx) => (
+              <div key={idx} className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
+                <img
+                  src={img}
+                  alt={`${service.title} image ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white rounded-b-2xl">
-          {/* Images Carousel */}
-          <div className="mb-6">
-            <div className="relative h-40 md:h-48 rounded-lg overflow-hidden shadow-lg">
-              <img
-                src={service.serviceImages[currentImageIndex] || "/placeholder.svg?height=200&width=400"}
-                alt={`${service.title} process ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover transition-opacity duration-500"
-              />
-              <div className="absolute bottom-2 left-2 right-2 flex justify-center space-x-2">
-                {service.serviceImages.map((_, index) => (
-                  <button
-                    key={index}
-                    className={cn(
-                      "w-2 h-2 rounded-full transition-all duration-300",
-                      index === currentImageIndex ? "bg-[#c59d5f]" : "bg-[#c59d5f]/40"
-                    )}
-                    onClick={() => setCurrentImageIndex(index)}
-                    aria-label={`Show image ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Text & Bullets */}
           <h3 className="text-xl md:text-2xl font-bold mb-2 text-[#2c2c2c] font-['Sora']">{service.title}</h3>
           <p className="text-[#495057] mb-4 font-['DM_Sans']">{service.videoDescription}</p>
           <div className="space-y-4">
