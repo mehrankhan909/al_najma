@@ -237,7 +237,7 @@ const ServiceModal = ({ service, onClose }) => {
         {/* Media layout for laptop screens */}
 <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
   {/* Video with 16:9 aspect ratio */}
-  <div className="flex-1 aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-lg">
+  <div className="flex-1 aspect-video rounded-xl bg-black flex items-center justify-center shadow-lg">
     <video
       ref={videoRef}
       src={service.videoUrl}
@@ -252,11 +252,12 @@ const ServiceModal = ({ service, onClose }) => {
   </div>
 
   {/* Vertical image column aligned to video height */}
-  <div className="hidden md:flex flex-col justify-between w-[100px]">
+  {/* mobile & desktop now */}
+  <div className="flex md:flex-col flex-row justify-between md:justify-start md:w-[100px] w-full gap-2 md:gap-3">
     {service.serviceImages.slice(0, 3).map((img, idx) => (
       <div
         key={idx}
-        className="aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
+        className="aspect-square w-1/3 md:w-full rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
       >
         <img
           src={img}
