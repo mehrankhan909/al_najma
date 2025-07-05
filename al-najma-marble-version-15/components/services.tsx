@@ -194,6 +194,7 @@ const services = [
 const ServiceModal = ({ service, onClose }) => {
   const videoRef = useRef(null)
 
+  // Lock background scroll and play video on open
   useEffect(() => {
     document.body.style.overflow = "hidden"
     const video = videoRef.current
@@ -233,37 +234,23 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Responsive Media Grid */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 p-4 pb-0">
-          {/* Video: left, with margin and shadow, large width */}
-          <div className="w-full md:w-[60%] flex justify-start items-center">
-            <div className="bg-black/70 rounded-2xl shadow-xl p-2 md:p-4 mx-auto md:ml-0 md:mr-0"
-              style={{
-                width: "100%",
-                maxWidth: 350,
-                marginLeft: "0",
-                marginRight: "auto",
-                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.13)",
-                border: "1px solid rgba(255,255,255,0.07)",
-                backdropFilter: "blur(3px)",
-              }}
-            >
-              <div className="aspect-square w-full rounded-xl overflow-hidden">
-                <video
-                  ref={videoRef}
-                  src={service.videoUrl}
-                  poster={service.serviceImages[0]}
-                  muted
-                  loop
-                  autoPlay
-                  playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
-                />
-              </div>
-            </div>
+        <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+          {/* Video 1:1 box, smaller than before */}
+          <div className="flex-shrink-0 w-full md:w-[220px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
+            <video
+              ref={videoRef}
+              src={service.videoUrl}
+              poster={service.serviceImages[0]}
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
+            />
           </div>
-          {/* Images: right, column on desktop, row on mobile, always spaced */}
-          <div className="w-full md:w-[40%] flex md:flex-col flex-row gap-2 md:gap-4 justify-end md:justify-end items-center md:items-stretch">
+          {/* Images: row on mobile, column on desktop, spaced */}
+          <div className="flex md:flex-col flex-row gap-2 md:gap-3 md:w-[100px] w-full justify-between items-center md:items-stretch">
             {service.serviceImages.slice(0, 3).map((img, idx) => (
               <div key={idx} className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
                 <img
@@ -360,6 +347,7 @@ export default function Services() {
   const sectionRef = useRef(null)
   const cardRefs = useRef([])
 
+  // Animate cards on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -458,4 +446,5 @@ export default function Services() {
       {activeService && <ServiceModal service={activeService} onClose={() => setActiveService(null)} />}
     </section>
   )
-}
+            }
+    
