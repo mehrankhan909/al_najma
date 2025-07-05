@@ -234,35 +234,39 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Responsive Media Grid */}
-        <div className="flex flex-col justify-between md:flex-row gap-6 p-4 pb-0">
-          {/* Video 1:1 box, smaller than before */}
-          <div className="flex-shrink-0 w-full md:w-[220px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
-            <video
-              ref={videoRef}
-              src={service.videoUrl}
-              poster={service.serviceImages[0]}
-              muted
-              loop
-              autoPlay
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
-            />
-          </div>
-          {/* Images: row on mobile, column on desktop, spaced */}
-          <div className="flex md:flex-col flex-row gap-2 md:gap-3 md:w-[100px] w-full justify-between items-center md:items-stretch">
-            {service.serviceImages.slice(0, 3).map((img, idx) => (
-              <div key={idx} className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
-                <img
-                  src={img}
-                  alt={`${service.title} image ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="flex flex-col md:flex-row md:items-end gap-6 p-4 pb-0">
+  {/* Video Box */}
+  <div className="flex-shrink-0 w-full md:w-[280px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
+    <video
+      ref={videoRef}
+      src={service.videoUrl}
+      poster={service.serviceImages[0]}
+      muted
+      loop
+      autoPlay
+      playsInline
+      preload="auto"
+      className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
+    />
+  </div>
+
+  {/* Images Column */}
+  <div className="flex md:flex-col flex-row gap-2 md:gap-3 md:w-[90px] w-full justify-between items-center md:items-stretch md:self-end">
+    {service.serviceImages.slice(0, 3).map((img, idx) => (
+      <div
+        key={idx}
+        className="w-1/3 md:w-full aspect-square rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
+      >
+        <img
+          src={img}
+          alt={`${service.title} image ${idx + 1}`}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white rounded-b-2xl">
