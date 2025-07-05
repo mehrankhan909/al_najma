@@ -4,10 +4,6 @@ import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 
-interface ServiceModalProps {
-  service: any
-  onClose: () => void
-}
 const services = [
   {
     id: "marble-restoration",
