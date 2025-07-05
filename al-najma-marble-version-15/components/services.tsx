@@ -234,7 +234,7 @@ const ServiceModal = ({ service, onClose }) => {
         </Button>
 
         {/* Responsive Media Grid */}
-        <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+        <div className="flex flex-col justify-between md:flex-row gap-6 p-4 pb-0">
           {/* Video 1:1 box, smaller than before */}
           <div className="flex-shrink-0 w-full md:w-[220px] aspect-square rounded-xl overflow-hidden bg-black flex items-center justify-center mx-auto md:mx-0 shadow-lg">
             <video
