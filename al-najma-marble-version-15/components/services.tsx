@@ -1,8 +1,11 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react" import { X } from "lucide-react" import { Button } from "@/components/ui/button" import { cn } from "@/lib/utils"
+import { useEffect, useRef } from "react";
+import { X, Sparkles, Zap, Brush, Wrench, Droplets, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const ServiceModal = ({ service, onClose }) => { const videoRef = useRef(null)
+// 👇 SERVICES ARRAY moved outside the component
 const services = [
   {
     id: "marble-restoration",
@@ -186,100 +189,129 @@ const services = [
     ],
   },
 ]
-useEffect(() => { document.body.style.overflow = "hidden" const video = videoRef.current if (video) { video.muted = true video.loop = true video.autoplay = true video.playsInline = true video.preload = "auto" video.play().catch(() => {}) } return () => { document.body.style.overflow = "" if (video) video.pause() } }, [service])
 
-return ( <div
-className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6 bg-black/80 backdrop-blur-sm"
-onClick={onClose}
-> <div className="relative bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden" style={{ maxHeight: "92vh" }} onClick={e => e.stopPropagation()} > <Button
-variant="ghost"
-size="icon"
-className="absolute top-4 right-4 bg-white text-black rounded-full z-10"
-onClick={onClose}
-aria-label="Close modal"
-> <X className="h-6 w-6" /> </Button>
+const ServiceModal = ({ service, onClose }) => {
+  const videoRef = useRef(null);
 
-{/* Media Grid */}
-    <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
-      {/* Video */}
-      <div className="aspect-square w-full md:w-[340px] flex-shrink-0 rounded-xl overflow-hidden bg-black">
-        <video
-          ref={videoRef}
-          src={service.videoUrl}
-          poster={service.serviceImages[0]}
-          muted
-          loop
-          autoPlay
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
-        />
-      </div>
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.play().catch(() => {});
+    }
+    return () => {
+      document.body.style.overflow = "";
+      if (video) video.pause();
+    };
+  }, [service]);
 
-      {/* Images */}
-      <div className="hidden md:flex md:flex-col gap-3 w-[100px]">
-        {service.serviceImages.slice(0, 3).map((img, idx) => (
-          <div key={idx} className="w-full aspect-square overflow-hidden rounded-md border">
-            <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Mobile Image Row */}
-    <div className="flex md:hidden gap-2 px-4 pt-2">
-      {service.serviceImages.slice(0, 3).map((img, idx) => (
-        <div key={idx} className="w-1/3 aspect-square overflow-hidden rounded-md border">
-          <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
-        </div>
-      ))}
-    </div>
-
-    {/* Content */}
-    <div className="overflow-y-auto p-4 md:p-6 bg-white">
-      <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
-        {service.title}
-      </h3>
-      <p className="italic text-gray-600 mb-4">{service.videoDescription}</p>
-      <h4 className="font-semibold text-black mb-1">Service Details:</h4>
-      <p className="text-sm text-gray-700 mb-4">{service.details}</p>
-
-      <h5 className="font-semibold text-black mb-2">Process Highlights:</h5>
-      <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
-        {service.processHighlights.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
-
-      <h5 className="font-semibold text-black mb-2">Key Benefits:</h5>
-      <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
-        {service.keyBenefits.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
-
-      <div className="mt-6 flex flex-col gap-2">
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden"
+        style={{ maxHeight: "92vh" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
         <Button
-          onClick={() => {
-            onClose()
-            document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" })
-          }}
-          className="w-full bg-gradient-to-r from-yellow-500 to-teal-600 text-white rounded-full"
-        >
-          Book This Service
-        </Button>
-        <Button
-          variant="outline"
+          variant="ghost"
+          size="icon"
+          className="absolute top-4 right-4 bg-white text-black rounded-full z-10"
           onClick={onClose}
-          className="w-full border-gray-300 text-gray-700 rounded-full"
+          aria-label="Close modal"
         >
-          Close
+          <X className="h-6 w-6" />
         </Button>
+
+        {/* Video and Images */}
+        <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+          {/* Video */}
+          <div className="aspect-square w-full md:w-[340px] flex-shrink-0 rounded-xl overflow-hidden bg-black">
+            <video
+              ref={videoRef}
+              src={service.videoUrl}
+              poster={service.serviceImages[0]}
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Images for desktop */}
+          <div className="hidden md:flex md:flex-col gap-3 w-[100px]">
+            {service.serviceImages.slice(0, 3).map((img, idx) => (
+              <div key={idx} className="w-full aspect-square overflow-hidden rounded-md border">
+                <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Images for mobile */}
+        <div className="flex md:hidden gap-2 px-4 pt-2">
+          {service.serviceImages.slice(0, 3).map((img, idx) => (
+            <div key={idx} className="w-1/3 aspect-square overflow-hidden rounded-md border">
+              <img src={img} alt={`service-image-${idx}`} className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="overflow-y-auto p-4 md:p-6 bg-white">
+          <h3 className="text-xl md:text-2xl font-bold text-black mb-2">{service.title}</h3>
+          <p className="italic text-gray-600 mb-4">{service.videoDescription}</p>
+
+          <h4 className="font-semibold text-black mb-1">Service Details:</h4>
+          <p className="text-sm text-gray-700 mb-4">{service.details}</p>
+
+          <h5 className="font-semibold text-black mb-2">Process Highlights:</h5>
+          <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
+            {service.processHighlights.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+
+          <h5 className="font-semibold text-black mb-2">Key Benefits:</h5>
+          <ul className="list-disc pl-5 text-sm text-gray-700 mb-4">
+            {service.keyBenefits.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+
+          {/* Action Buttons */}
+          <div className="mt-6 flex flex-col gap-2">
+            <Button
+              onClick={() => {
+                onClose();
+                document.getElementById("book-consultation")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full bg-gradient-to-r from-yellow-500 to-teal-600 text-white rounded-full"
+            >
+              Book This Service
+            </Button>
+            <Button
+              variant="outline"
+              onClick={onClose}
+              className="w-full border-gray-300 text-gray-700 rounded-full"
+            >
+              Close
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-) }
+  );
+};
 
 export default ServiceModal;
