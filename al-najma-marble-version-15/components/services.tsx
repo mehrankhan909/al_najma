@@ -211,21 +211,6 @@ const ServiceModal = ({ service, onClose }) => {
       if (video) video.pause()
     }
   }, [service])
-  useEffect(() => {
-  const video = videoRef.current;
-  if (!video) return;
-
-  const onWheel = (e) => {
-    e.preventDefault();
-    window.scrollBy({ top: e.deltaY, behavior: 'auto' });
-  };
-
-  video.addEventListener('wheel', onWheel, { passive: false });
-
-  return () => {
-    video.removeEventListener('wheel', onWheel);
-  };
-}, []);
 
   return (
     <div
@@ -250,7 +235,7 @@ const ServiceModal = ({ service, onClose }) => {
 
         {/* Responsive Media Grid */}
         <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
-  {/* Video: 16:9 aspect ratio, 65% width */}
+  {/* Video with 16:9 aspect ratio, slightly smaller width */}
   <div className="md:w-[65%] w-full aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-lg">
     <video
       ref={videoRef}
@@ -265,12 +250,12 @@ const ServiceModal = ({ service, onClose }) => {
     />
   </div>
 
-  {/* Image Column: same height as video, 3 stacked blocks */}
-  <div className="flex md:flex-col flex-row justify-between md:justify-start md:w-[35%] w-full md:aspect-video md:max-h-full gap-2 md:gap-3">
+  {/* Image column: shows on both mobile & desktop now */}
+  <div className="flex md:flex-col flex-row justify-between md:justify-start md:w-[100px] w-full gap-2 md:gap-3">
     {service.serviceImages.slice(0, 3).map((img, idx) => (
       <div
         key={idx}
-        className="md:flex-1 w-1/3 md:w-full aspect-square md:aspect-auto rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
+        className="aspect-square w-1/3 md:w-full rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
       >
         <img
           src={img}
