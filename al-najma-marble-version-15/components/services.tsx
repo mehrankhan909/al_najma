@@ -211,7 +211,19 @@ const ServiceModal = ({ service, onClose }) => {
       if (video) video.pause()
     }
   }, [service])
+  
+export default function MediaPreview({ service }) {
+  const videoRef = useRef(null)
+  const [currentImg, setCurrentImg] = useState(0)
 
+  // Auto-slide logic
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % service.serviceImages.length)
+    }, 2500) // 2.5 seconds per image
+    return () => clearInterval(interval)
+  }, [service.serviceImages.length])
+  
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6 bg-black/70 backdrop-blur-sm"
@@ -253,22 +265,37 @@ const ServiceModal = ({ service, onClose }) => {
 
   {/* Vertical image column aligned to video height */}
   {/* mobile & desktop now */}
-  <div className="flex md:flex-col flex-row justify-between md:justify-start md:w-[100px] w-full gap-2 md:gap-3">
-    {service.serviceImages.slice(0, 3).map((img, idx) => (
-      <div
-        key={idx}
-        className="aspect-square w-1/3 md:w-full rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center"
-      >
-        <img
-          src={img}
-          alt={`${service.title} image ${idx + 1}`}
-          className="w-full h-full object-cover"
-          loading="lazy"
+   <div className="flex flex-col md:flex-row gap-4 p-4 pb-0">
+      {/* Video - slightly smaller than full YouTube size */}
+      <div className="md:w-[65%] w-full aspect-[16/10] rounded-xl bg-black flex items-center justify-center shadow-lg">
+        <video
+          ref={videoRef}
+          src={service.videoUrl}
+          poster={service.serviceImages[0]}
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover rounded-xl filter brightness-95 contrast-110 saturate-110"
         />
       </div>
-    ))}
-  </div>
-</div>
+
+      {/* Auto-changing image slider */}
+      <div className="relative md:w-[35%] w-full aspect-[16/10] overflow-hidden rounded-xl shadow-md bg-gray-100">
+        {service.serviceImages.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt={`Preview ${idx}`}
+            loading="lazy"
+            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              idx === currentImg ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white rounded-b-2xl">
