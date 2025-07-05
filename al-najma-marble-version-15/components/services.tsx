@@ -32,7 +32,161 @@ const services = [
       "Cost-effective alternative to replacement",
     ],
   },
-  // ... (other services remain unchanged, omitted here for brevity)
+  {
+    id: "marble-shining",
+    title: "Marble Shining",
+    description:
+      "Professional marble shining services that restore the natural luster and brilliance of your marble surfaces with diamond polishing techniques.",
+    icon: Zap,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
+    details:
+      "Using advanced diamond polishing compounds and techniques, we restore the mirror-like finish that makes marble surfaces truly spectacular.",
+    videoUrl: "/videos/s22.mp4",
+    videoDescription:
+      "See the incredible transformation as we bring back the mirror-like shine to dull marble surfaces.",
+    serviceImages: ["/images/s6.jpg", "/images/s7.jpg", "/images/s8.jpg"],
+    processHighlights: [
+      "Diamond powder polishing compounds application",
+      "Progressive grit sequence for optimal shine",
+      "High-speed buffing with professional equipment",
+      "Final crystallization for lasting brilliance",
+    ],
+    keyBenefits: [
+      "Achieves mirror-like reflective finish",
+      "Enhances natural marble patterns and colors",
+      "Creates stunning visual impact",
+      "Professional showroom-quality results",
+    ],
+  },
+  {
+    id: "marble-grouting",
+    title: "Marble Grouting",
+    description:
+      "Expert grouting services for marble installations, ensuring perfect sealing and long-lasting protection against moisture and stains.",
+    icon: Brush,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
+    details:
+      "Professional grouting with premium sealants that protect your marble joints from water damage, staining, and deterioration.",
+    videoUrl: "/videos/s23.mp4",
+    videoDescription:
+      "Learn about our precision grouting techniques that ensure long-lasting protection and perfect finishes.",
+    serviceImages: ["/images/s10.jpg", "/images/s11.jpg", "/images/s12.jpg"],
+    processHighlights: [
+      "Premium epoxy and cement-based grout selection",
+      "Precision application with professional tools",
+      "Color-matching for seamless integration",
+      "Waterproof sealing for maximum protection",
+    ],
+    keyBenefits: [
+      "Prevents water damage and moisture infiltration",
+      "Maintains structural integrity of installation",
+      "Easy maintenance and cleaning",
+      "Long-lasting protection for years",
+    ],
+  },
+  {
+    id: "marble-fixing",
+    title: "Marble Fixing",
+    description:
+      "Professional marble installation and fixing services for floors, walls, countertops, and decorative elements with precision and care.",
+    icon: Wrench,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#00675b]",
+    details:
+      "Expert installation services ensuring perfect alignment, proper support, and long-lasting durability for all marble applications.",
+    videoUrl: "/videos/s24.mp4",
+    videoDescription:
+      "Watch our skilled craftsmen install marble with precision, ensuring perfect alignment and lasting beauty.",
+    serviceImages: ["/images/s14.jpg", "/images/s15.jpg", "/images/s16.jpg"],
+    processHighlights: [
+      "Precise measurement and template creation",
+      "Professional cutting and edge finishing",
+      "Structural support assessment and reinforcement",
+      "Perfect leveling and alignment techniques",
+    ],
+    keyBenefits: [
+      "Flawless installation with perfect joints",
+      "Structural integrity and long-term stability",
+      "Custom fitting for any space or design",
+      "Professional craftsmanship guarantee",
+    ],
+  },
+  {
+    id: "marble-polishing",
+    title: "Marble Polishing",
+    description:
+      "Diamond polishing services that bring out the natural shine and beauty of marble surfaces with professional-grade equipment.",
+    icon: Sparkles,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#00675b] group-hover:to-[#00a896]",
+    details:
+      "Multi-stage polishing process using diamond pads and compounds to achieve the perfect mirror finish on all marble surfaces.",
+    videoUrl: "/videos/s25.mp4",
+    videoDescription:
+      "Experience our multi-stage diamond polishing process that creates stunning mirror-like finishes.",
+    serviceImages: ["/images/s18.jpg", "/images/s19.jpg", "/images/s20.jpg"],
+    processHighlights: [
+      "Multi-stage diamond pad progression (50-3000 grit)",
+      "Wet polishing technique for dust-free operation",
+      "Professional-grade polishing machines",
+      "Final buffing for maximum gloss retention",
+    ],
+    keyBenefits: [
+      "Achieves high-gloss mirror finish",
+      "Removes scratches and surface imperfections",
+      "Enhances marble's natural beauty",
+      "Increases surface durability and longevity",
+    ],
+  },
+  {
+    id: "marble-cleaning",
+    title: "Marble Cleaning",
+    description:
+      "Specialized cleaning services using marble-safe products and techniques to maintain the beauty and integrity of your surfaces.",
+    icon: Droplets,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#1b1b1b] group-hover:to-[#4a4a4a]",
+    details:
+      "Safe, effective cleaning methods that remove dirt, grime, and stains without damaging the marble's natural structure.",
+    videoUrl: "/videos/s26.mp4",
+    videoDescription:
+      "Discover our safe and effective cleaning methods that preserve marble while removing stubborn stains.",
+    serviceImages: ["/images/s1.jpg", "/images/s5.jpg", "/images/s9.jpg"],
+    processHighlights: [
+      "pH-neutral marble-safe cleaning solutions",
+      "Specialized stain removal techniques",
+      "Gentle scrubbing with soft-bristle brushes",
+      "Thorough rinsing and drying procedures",
+    ],
+    keyBenefits: [
+      "Preserves marble's natural composition",
+      "Removes stains without surface damage",
+      "Maintains original color and patterns",
+      "Safe for food preparation areas",
+    ],
+  },
+  {
+    id: "deep-cleaning",
+    title: "Deep Cleaning",
+    description:
+      "Intensive deep cleaning services that penetrate marble pores to remove embedded dirt, stains, and restore original appearance.",
+    icon: Shield,
+    hoverBg: "group-hover:bg-gradient-to-br group-hover:from-[#c59d5f] group-hover:to-[#e7c992]",
+    details:
+      "Comprehensive deep cleaning process that removes years of buildup and prepares surfaces for polishing and sealing treatments.",
+    videoUrl: "/videos/s27.mp4",
+    videoDescription: "See the dramatic before and after results of our intensive deep cleaning process.",
+    serviceImages: ["/images/s13.jpg", "/images/s17.jpg", "/images/professional-cleaning.jpg"],
+    processHighlights: [
+      "High-pressure steam cleaning technology",
+      "Specialized extraction of embedded contaminants",
+      "Industrial-grade cleaning equipment",
+      "Complete sanitization and deodorization",
+    ],
+    keyBenefits: [
+      "Removes years of accumulated dirt and grime",
+      "Prepares surface for optimal polishing results",
+      "Eliminates bacteria and allergens",
+      "Restores marble to near-original condition",
+    ],
+  },
 ]
 
 const ServiceModal = ({ service, onClose }) => {
