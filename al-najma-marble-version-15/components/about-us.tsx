@@ -135,7 +135,7 @@ export default function AboutUs() {
                 <div className="space-y-4 text-[#495057] font-['DM_Sans'] leading-relaxed">
                   <p>
                     Founded in 2011 by Hazrat Ali, Al-Najma Al-Hadetha Marble began as a vision to bring world-class marble
-                    restoration services to Dubai's luxury market. With over 13 years of dedicated service, we have
+                    restoration services to Dubai's luxury market. With over 14 years of dedicated service, we have
                     established ourselves as the premier choice for high-end residential and commercial marble care.
                   </p>
                   <p>
