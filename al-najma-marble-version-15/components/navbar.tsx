@@ -50,7 +50,7 @@ export default function Navbar() {
   }, [mobileMenuOpen])
 
   const navLinks = [
-    { name: "Home", href: "#hero-section" },
+    { name: "Home", href: "/" },
     { name: "Services", href: "#our-services" },
     { name: "About Us", href: "#about-us" },
     { name: "Testimonials", href: "#client-reviews" },
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <a
-              href="#hero-section"
+              href="/"
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent"
             >
               AL_<span className="font-light">NAJMA </span>
