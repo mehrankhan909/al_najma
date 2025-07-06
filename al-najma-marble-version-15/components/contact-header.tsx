@@ -1,6 +1,6 @@
 "use client"
 
-import { Phone, MapPin, Clock } from "lucide-react"
+import { Calender, MapPin, Clock } from "lucide-react"
 
 export default function ContactHeader() {
   return (
@@ -9,7 +9,7 @@ export default function ContactHeader() {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-8">
           {/* Mobile Number */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
-            <Phone className="h-4 w-4 text-[#c59d5f]" />
+            <Calender className="h-4 w-4 text-[#c59d5f]" />
             <span className="font-medium">Since:</span>
               2011
           </div>
