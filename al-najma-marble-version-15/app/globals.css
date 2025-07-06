@@ -23,6 +23,16 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 221.2 83.2% 53.3%;
   --radius: 0.5rem;
+
+  /* New Brand Colors */
+  --silver-primary: #c0c0c0;
+  --silver-light: #e8e8e8;
+  --silver-dark: #a0a0a0;
+  --cream-primary: #fff8dc;
+  --cream-light: #fffef7;
+  --cream-dark: #f5f5dc;
+  --accent-gold: #ffd700;
+  --accent-platinum: #e5e4e2;
 }
 
 html {
@@ -31,8 +41,8 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f7f7f7;
-  color: #1b1b1b;
+  background-color: #fffef7;
+  color: #2c2c2c;
 }
 
 h1,
@@ -54,12 +64,12 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c59d5f;
+  background: #c0c0c0;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00675b;
+  background: #a0a0a0;
 }
 
 /* Animations */
@@ -121,10 +131,34 @@ h6 {
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(197, 157, 95, 0.5);
+    box-shadow: 0 0 5px rgba(192, 192, 192, 0.5);
   }
   50% {
-    box-shadow: 0 0 20px rgba(197, 157, 95, 0.8), 0 0 30px rgba(197, 157, 95, 0.6);
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.8), 0 0 30px rgba(192, 192, 192, 0.6);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+@keyframes wave-reverse {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(25%) translateZ(0) scaleY(0.55);
+  }
+  100% {
+    transform: translateX(50%) translateZ(0) scaleY(1);
   }
 }
 
@@ -144,6 +178,14 @@ h6 {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+.animate-wave {
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.animate-wave-reverse {
+  animation: wave-reverse 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
 .animation-delay-2000 {
   animation-delay: 2s;
 }
@@ -153,15 +195,22 @@ h6 {
 }
 
 /* Enhanced text effects */
-.text-gradient-gold {
-  background: linear-gradient(135deg, #ffd700, #ffa500, #ff6347);
+.text-gradient-silver {
+  background: linear-gradient(135deg, #e8e8e8, #c0c0c0, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cream {
+  background: linear-gradient(135deg, #fffef7, #fff8dc, #f5f5dc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-shadow-luxury {
-  text-shadow: 0 0 10px rgba(197, 157, 95, 0.5), 0 0 20px rgba(197, 157, 95, 0.3), 0 0 30px rgba(197, 157, 95, 0.1);
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.5), 0 0 20px rgba(192, 192, 192, 0.3), 0 0 30px rgba(192, 192, 192, 0.1);
 }
 
 /* Glass morphism effect */
@@ -169,4 +218,72 @@ h6 {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Wave layers */
+.wave-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.3), rgba(232, 232, 232, 0.2));
+  border-radius: 50%;
+}
+
+/* Responsive wave rotation */
+@media (orientation: portrait) {
+  .wave-container {
+    transform: rotate(0deg);
+  }
+}
+
+@media (orientation: landscape) {
+  .wave-container {
+    transform: rotate(0deg);
+  }
+}
+
+/* Enhanced shadow utilities */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Professional image filters */
+.filter-professional {
+  filter: contrast(1.1) brightness(1.05) saturate(1.1) grayscale(0.2);
+}
+
+.filter-professional-hover {
+  filter: contrast(1.25) brightness(1.1) saturate(1.25) grayscale(0);
+}
+
+/* Enhanced animations for CEO section */
+@keyframes professional-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(248, 249, 250, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(248, 249, 250, 0.6), 0 0 60px rgba(233, 236, 239, 0.4);
+  }
+}
+
+.animate-professional-glow {
+  animation: professional-glow 3s ease-in-out infinite;
+}
+
+/* Floating effect for decorative elements */
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
 }
