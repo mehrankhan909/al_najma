@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, MapPin, Clock } from "lucide-react"
+import { Mail, MapPin, Clock, Phone } from "lucide-react"
 
 export default function ContactHeader() {
   return (
