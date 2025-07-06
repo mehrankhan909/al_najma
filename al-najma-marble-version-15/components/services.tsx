@@ -393,80 +393,80 @@ export default function Services() {
   }, [visibleCards])
 
   return (
-    <section id="our-services" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f0f0f0] via-[#e5e5e5] to-[#f0f0f0]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#c59d5f]/5 via-transparent to-[#00675b]/5 animate-gradient-x" />
-        <FloatingParticles />
-        <AnimatedBlobs />
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 0)`,
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
+  <section id="our-services" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
+    {/* Background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#f0f0f0] via-[#e5e5e5] to-[#f0f0f0]">
+      <div className="absolute inset-0 bg-gradient-to-r from-[#c59d5f]/5 via-transparent to-[#00675b]/5 animate-gradient-x" />
+      <FloatingParticles />
+      <AnimatedBlobs />
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+      </div>
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
+          Our Premium{" "}
+          <span className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">Services</span>
+        </h2>
+        <p className="text-lg text-[#6c757d] max-w-2xl mx-auto font-['DM_Sans']">
+          Comprehensive marble care solutions using advanced techniques and premium materials for exceptional results
+        </p>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
-            Our Premium{" "}
-            <span className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">Services</span>
-          </h2>
-          <p className="text-lg text-[#6c757d] max-w-2xl mx-auto font-['DM_Sans']">
-            Comprehensive marble care solutions using advanced techniques and premium materials for exceptional results
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {services.map((service, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
+        {services.map((service, index) => (
+          <div
+            key={service.id}
+            ref={(el) => (cardRefs.current[index] = el)}
+            className={cn(
+              "relative group cursor-pointer transition-all duration-700 ease-out",
+              visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            )}
+            onClick={() => setActiveService(service)}
+          >
             <div
-              key={service.id}
-              ref={(el) => (cardRefs.current[index] = el)}
               className={cn(
-                "relative group cursor-pointer transition-all duration-700 ease-out",
-                visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+                "h-full p-4 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
+                service.hoverBg
               )}
-              onClick={() => setActiveService(service)}
             >
-              <div
-                className={cn(
-                  "h-full p-6 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
-                  service.hoverBg
-                )}
-              >
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-br from-[#c59d5f] to-[#e7c992] group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <service.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
-                  {service.title}
-                </h3>
-                <p className="text-[#6c757d] group-hover:text-white/90 mb-6 font-['DM_Sans'] leading-relaxed transition-colors duration-300">
-                  {service.description}
-                </p>
-                <div className="flex items-center text-[#c59d5f] group-hover:text-white/90 transition-colors duration-300">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.868v4.264a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  </svg>
-                  <span className="text-sm font-medium">Watch Demo</span>
-                </div>
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-gradient-to-br from-[#c59d5f] to-[#e7c992] group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <service.icon className="h-7 w-7 text-white" />
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
+                {service.title}
+              </h3>
+              <p className="text-[#6c757d] group-hover:text-white/90 mb-4 font-['DM_Sans'] leading-relaxed transition-colors duration-300">
+                {service.description}
+              </p>
+              <div className="flex items-center text-[#c59d5f] group-hover:text-white/90 transition-colors duration-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mr-2 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.868v4.264a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                </svg>
+                <span className="text-sm font-medium">Watch Demo</span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+    </div>
 
-      {activeService && <ServiceModal service={activeService} onClose={() => setActiveService(null)} />}
-    </section>
-  )
-            }
-    
+    {activeService && <ServiceModal service={activeService} onClose={() => setActiveService(null)} />}
+  </section>
+)
+}
+  
