@@ -27,7 +27,7 @@ const stats = [
   },
   {
     id: "experience",
-    value: 12,
+    value: 14,
     label: "Years Experience",
     icon: Clock,
     suffix: "+",
