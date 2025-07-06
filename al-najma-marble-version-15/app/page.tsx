@@ -5,8 +5,10 @@ import Navbar from "@/components/navbar"
 import ContactHeader from "@/components/contact-header"
 import Hero from "@/components/hero"
 import Services from "@/components/services"
+import AboutUs from "@/components/about-us"
 import BookingWidget from "@/components/booking-widget"
 import Testimonials from "@/components/testimonials"
+import Location from "@/components/location"
 import Stats from "@/components/stats"
 import Footer from "@/components/footer"
 import FloatingAction from "@/components/floating-action"
@@ -28,9 +30,11 @@ export default function Home() {
         <ContactHeader />
         <Hero />
         <Services />
+        <AboutUs />
         <Stats />
         <Testimonials />
         <BookingWidget />
+        <Location />
         <Footer />
         <FloatingAction />
       </div>
