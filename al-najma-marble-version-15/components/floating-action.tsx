@@ -43,7 +43,7 @@ export default function FloatingAction() {
         {isOpen && (
           <>
             <div className="transform transition-all duration-300 scale-100 opacity-100">
-              <a href="tel:+97141234567">
+              <a href="tel:+971527590125">
                 <Button
                   size="icon"
                   className="bg-[#00675b] hover:bg-[#00776b] text-white shadow-lg rounded-full h-12 w-12"
@@ -54,7 +54,7 @@ export default function FloatingAction() {
             </div>
 
             <div className="transform transition-all duration-300 scale-100 opacity-100">
-              <a href="https://wa.me/97141234567" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/971559074262" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="icon"
                   className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-lg rounded-full h-12 w-12"
