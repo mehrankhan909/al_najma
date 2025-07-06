@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">
-              Al Najma Al Hadetha <span className="font-light">Marble</span>
+              Al-Najma Al Hadetha<span className="font-light"> Marble</span>
             </h3>
             <p className="text-gray-600 mb-4">
               Dubai's premier marble polishing and restoration service for high-end residential and commercial properties.
