@@ -73,7 +73,7 @@ export default function Navbar() {
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent"
             >
               AL_<span className="font-light">NAJMA </span>
-              <span className="text-normal md:text:lg font-light)">(Al Hadetha)</span>
+              <span className="text-base md:text:lg font-light)">(Al Hadetha)</span>
             </a>
           </div>
 
@@ -117,7 +117,8 @@ export default function Navbar() {
               {/* Header with Close Button */}
               <div className="flex items-center justify-between p-6 border-b border-gray-100">
                 <div className="text-xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">
-                  Al_<span className="font-light">NAJMA</span>
+                  Al_<span className="font-light">NAJMA </span>
+                  <span className="text-base font-light)">(Al Hadetha)</span>
                 </div>
                 <Button
                   variant="ghost"
