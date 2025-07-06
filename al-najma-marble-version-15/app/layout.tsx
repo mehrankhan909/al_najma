@@ -3,7 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "AL-NAJMA Al Hadetha Marble - Premium Marble Polishing & Restoration in Dubai",
+  title: "Al-Najma Al-Hadetha Marble - Premium Marble Polishing & Restoration in Dubai",
   description:
     "Dubai's elite marble restoration service for high-end residential and commercial clients seeking immaculate flooring aesthetics.",
     generator: 'v0.dev'
