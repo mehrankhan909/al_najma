@@ -75,7 +75,7 @@ export default function AboutUs() {
               <div className="relative inline-block mb-8">
                 <div className="w-80 h-80 mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                   <img
-                    src="/images/owner-portrait.png"
+                    src="/images/owner.jpg"
                     alt="Ahmed Al-Najma - Founder & CEO"
                     className="w-full h-full object-cover"
                   />
