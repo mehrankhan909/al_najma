@@ -148,23 +148,6 @@ export default function Navbar() {
                     </a>
                   ))}
                 </nav>
-
-                <div className="mt-auto mb-10 space-y-4">
-                  <Button
-                    variant="outline"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full border-[#c59d5f] text-[#c59d5f] hover:bg-[#c59d5f] hover:text-white rounded-full py-6 text-lg"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Now
-                  </Button>
-                  <Button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full py-6 text-lg"
-                  >
-                    Book Consultation
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
