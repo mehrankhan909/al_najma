@@ -3,7 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "AL-NAJMA Marble - Premium Marble Polishing & Restoration in Dubai",
+  title: "AL-NAJMA Al Hadetha Marble - Premium Marble Polishing & Restoration in Dubai",
   description:
     "Dubai's elite marble restoration service for high-end residential and commercial clients seeking immaculate flooring aesthetics.",
     generator: 'v0.dev'
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ PNG favicon */}
-        <link rel="icon" href="/spray_7601691.png" type="image/png" />
+        <link rel="icon" href="/Najma_20250706_141504_0000.png" type="image/png" />
 
         {/* Fonts (if you're using them) */}
         <link
