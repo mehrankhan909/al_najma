@@ -142,9 +142,9 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold mb-8 tracking-tight leading-none">
             <span className="block bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6347] bg-clip-text text-transparent drop-shadow-2xl font-['Playfair_Display'] italic">
-              Al-Najma
+              Al-Najma<span className="text-xl md:text:3xl lg:text-5xl xl:text-7xl font-light)"> (Al Hadetha)</span>
             </span>
-            <span className="text-xl md:text:3xl lg:text-5xl xl:text-7xl font-light)"> (Al Hadetha)</span>
+            
             <span className="block bg-gradient-to-r from-[#c59d5f] via-[#d4a76a] to-[#00675b] bg-clip-text text-transparent drop-shadow-2xl font-['Cinzel'] font-bold">
               Marble
             </span>
