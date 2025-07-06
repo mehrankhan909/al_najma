@@ -53,9 +53,9 @@ export default function Navbar() {
     { name: "Home", href: "#hero-section" },
     { name: "Services", href: "#our-services" },
     { name: "About Us", href: "#about-us" },
-    { name: "Location", href: "#location" },
     { name: "Testimonials", href: "#client-reviews" },
     { name: "Book Now", href: "#book-consultation" },
+    { name: "Location", href: "#location" },
   ]
 
   return (
@@ -73,6 +73,7 @@ export default function Navbar() {
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent"
             >
               AL_<span className="font-light">NAJMA</span>
+              <span className="text-lg md:text:xl">(Al Hadetha)</span>
             </a>
           </div>
 
@@ -88,12 +89,6 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-
-          <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] hover:from-[#d5ad6f] hover:to-[#00776b] text-white rounded-full px-6">
-              Book Now
-            </Button>
-          </div>
 
           {/* Mobile Navigation Toggle */}
           <div className="flex md:hidden items-center space-x-2">
