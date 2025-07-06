@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ PNG favicon */}
-        <link rel="icon" href="/Najma_20250706_141504_0000.png" type="image/png" />
+        <link rel="icon" href="/Al Najma_20250706_141504_0000.png" type="image/png" />
 
         {/* Fonts (if you're using them) */}
         <link
