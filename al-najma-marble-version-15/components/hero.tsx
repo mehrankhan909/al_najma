@@ -144,6 +144,7 @@ export default function Hero() {
             <span className="block bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6347] bg-clip-text text-transparent drop-shadow-2xl font-['Playfair_Display'] italic">
               Al-Najma
             </span>
+            <span className="text-xl md:text:3xl lg:text-5xl xl:text-7xl font-light)"> (Al Hadetha)</span>
             <span className="block bg-gradient-to-r from-[#c59d5f] via-[#d4a76a] to-[#00675b] bg-clip-text text-transparent drop-shadow-2xl font-['Cinzel'] font-bold">
               Marble
             </span>
