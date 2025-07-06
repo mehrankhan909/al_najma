@@ -34,14 +34,14 @@ export default function ContactHeader() {
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <MapPin className="h-4 w-4 text-[#c59d5f]" />
             <span className="font-medium">Location:</span>
-            <span>Al Garhoud Dubai, UAE</span>
+            <span>B312, NASER AHMED SAEED MOHAMED ALAWADHI building, Al Garhoud, Dubai</span>
           </div>
 
           {/* Business Hours */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <Clock className="h-4 w-4 text-[#00675b]" />
-            <span className="font-medium">Hours:</span>
-            <span>24/7 Service</span>
+            <span className="font-medium">Mail:</span>
+            <span>alnajma-cleaning@hotmail.com</span>
           </div>
         </div>
       </div>
