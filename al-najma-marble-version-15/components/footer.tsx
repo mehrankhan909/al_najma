@@ -41,17 +41,17 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Diamond Polishing
+                  Marble Restoration
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Deep Cleaning
+                  Marble Shining
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Nano Sealing
+                  Marble Grouting
                 </a>
               </li>
               <li>
@@ -106,26 +106,26 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-gray-600">Downtown Dubai, Sheikh Mohammed bin Rashid Blvd, Dubai, UAE</span>
+                <span className="text-gray-600">Al Garhoud, Dubai, UAE</span>
               </li>
               <li className="flex items-center">
                 <svg className="h-5 w-5 mr-2 text-[#c59d5f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span className="text-gray-600">+971 4 123 4567</span>
+                <span className="text-gray-600">+971 55 907 4262</span>
               </li>
               <li className="flex items-center">
                 <svg className="h-5 w-5 mr-2 text-[#c59d5f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-gray-600">info@alnajma.ae</span>
+                <span className="text-gray-600">info@alnajma_hadetha.ae</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-300 mt-12 pt-8 text-center text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Al Najma. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Al Najma Al Hadetha. All rights reserved.</p>
         </div>
       </div>
     </footer>
