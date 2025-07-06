@@ -72,8 +72,8 @@ export default function Navbar() {
               href="#hero-section"
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent"
             >
-              AL_<span className="font-light">NAJMA</span>
-              <span className="text-lg md:text:xl">(Al Hadetha)</span>
+              AL_<span className="font-light">NAJMA </span>
+              <span className="text-normal md:text:lg font-light)">(Al Hadetha)</span>
             </a>
           </div>
 
