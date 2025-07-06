@@ -77,19 +77,20 @@ export default function Location() {
 
               {/* Map Section */}
               <div className="mt-12">
-                <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1739405085973!2d55.27053731501!3d25.197197983896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sDowntown%20Dubai%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1635000000000!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-2xl filter grayscale-[20%] contrast-110"
-                  ></iframe>
-                </div>
-              </div>
+  <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
+    <iframe
+      // Al Qusais / Dubai coordinates from your goo.gl link
+      src="https://maps.google.com/maps?q=25.252077,55.337635&z=14&output=embed"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="rounded-2xl filter grayscale-[20%] contrast-110"
+    />
+  </div>
+</div>
             </div>
           </div>
         </div>
