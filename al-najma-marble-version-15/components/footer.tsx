@@ -40,22 +40,22 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
                   Marble Restoration
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
                   Marble Shining
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
                   Marble Grouting
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
                   Crack Repair
                 </a>
               </li>
