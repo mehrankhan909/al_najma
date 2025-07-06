@@ -10,18 +10,16 @@ export default function ContactHeader() {
           {/* Mobile Number */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <Phone className="h-4 w-4 text-[#c59d5f]" />
-            <span className="font-medium">Mobile:</span>
-            <a href="tel:+971501234567" className="hover:text-[#c59d5f] transition-colors">
-              +971 50 123 4567
-            </a>
+            <span className="font-medium">Since:</span>
+              2011
           </div>
 
           {/* Telephone Number */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <Phone className="h-4 w-4 text-[#00675b]" />
             <span className="font-medium">Office:</span>
-            <a href="tel:+97141234567" className="hover:text-[#00675b] transition-colors">
-              +971 4 123 4567
+            <a href="tel:+971559074262" className="hover:text-[#00675b] transition-colors">
+              +971 55 907 4262
             </a>
           </div>
 
@@ -29,7 +27,7 @@ export default function ContactHeader() {
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <MapPin className="h-4 w-4 text-[#c59d5f]" />
             <span className="font-medium">Location:</span>
-            <span>Downtown Dubai, UAE</span>
+            <span>Al Garhoud Dubai, UAE</span>
           </div>
 
           {/* Business Hours */}
