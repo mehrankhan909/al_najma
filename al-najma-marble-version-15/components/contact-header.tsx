@@ -42,11 +42,12 @@ export default function ContactHeader() {
           {/* Business Hours */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
   <Mail className="h-4 w-4 text-[#00675b]" />
+            <span className="font-medium">Mail:</span>
   <a
     href="mailto:alnajma-cleaning@hotmail.com?subject=Service%20Inquiry&body=Hello%2C%20I%20am%20interested%20in%20your%20services..."
     className="font-medium hover:text-[#00675b] transition-colors"
   >
-    Send Message
+    alnajma-cleaning@hotmail.com
   </a>
 </div>
 
