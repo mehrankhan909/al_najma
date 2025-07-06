@@ -5,8 +5,8 @@ import { Mail, MapPin, Clock, Phone } from "lucide-react"
 export default function ContactHeader() {
   return (
     <div className="bg-gradient-to-r from-[#f8f9fa] to-[#e9ecef] border-b border-[#c59d5f]/10 py-3 mt-20">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-8">
+      <div className="container mx-auto px-1">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly gap-4 md:gap-4">
           {/* Mobile Number */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <Clock className="h-4 w-4 text-[#c59d5f]" />
