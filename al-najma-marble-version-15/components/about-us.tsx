@@ -68,7 +68,7 @@ export default function AboutUs() {
                 <div className="w-80 h-80 mx-auto lg:mx-0 bg-gradient-to-br from-white/40 via-white/20 to-transparent rounded-3xl p-8 shadow-2xl backdrop-blur-sm border border-white/30">
                   <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl border-3 border-white/50 relative transform transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl">
                     <img
-                      src="/images/ceo-portrait.jpg"
+                      src="/images/IMG-20250706-WA0045.jpg"
                       alt="Hazrat Ali - Founder & CEO"
                       className="w-full h-full object-cover transition-all duration-700 filter grayscale-[15%] contrast-110 brightness-105 saturate-110 group-hover:grayscale-0 group-hover:contrast-115 group-hover:brightness-108 group-hover:saturate-120 group-hover:scale-110"
                     />
