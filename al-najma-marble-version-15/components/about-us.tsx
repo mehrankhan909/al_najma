@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Award, Calendar, Users, Star, MapPin, Phone } from "lucide-react"
+import { Calendar, MapPin, Phone } from "lucide-react"
 
 export default function AboutUs() {
   const [isVisible, setIsVisible] = useState(false)
@@ -24,15 +24,6 @@ export default function AboutUs() {
 
     return () => observer.disconnect()
   }, [])
-
-  const achievements = [
-    {
-      icon: Calendar,
-      value: "Since 2011",
-      label: "Years of Excellence",
-      description: "Over a decade of premium marble services",
-    },
-  ]
 
   return (
     <section id="about-us" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
@@ -71,23 +62,55 @@ export default function AboutUs() {
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
               }`}
             >
-              {/* Owner Image */}
-              <div className="relative inline-block mb-8">
-                <div className="w-80 h-80 mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                  <img
-                    src="/images/IMG-20250706-WA0045.jpg"
-                    alt="Ahmed Al-Najma - Founder & CEO"
-                    className="w-full h-full object-cover"
-                  />
+              {/* Owner Image Container with transparent margins */}
+              <div className="relative inline-block mb-8 group">
+                {/* Outer container with transparent padding for boxed effect */}
+                <div className="w-80 h-80 mx-auto lg:mx-0 bg-gradient-to-br from-white/40 via-white/20 to-transparent rounded-3xl p-8 shadow-2xl backdrop-blur-sm border border-white/30">
+                  <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl border-3 border-white/50 relative transform transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl">
+                    <img
+                      src="/images/ceo-portrait.jpg"
+                      alt="Hazrat Ali - Founder & CEO"
+                      className="w-full h-full object-cover transition-all duration-700 filter grayscale-[15%] contrast-110 brightness-105 saturate-110 group-hover:grayscale-0 group-hover:contrast-115 group-hover:brightness-108 group-hover:saturate-120 group-hover:scale-110"
+                    />
+
+                    {/* Overlay effects */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2c2c2c]/15 via-transparent to-transparent opacity-50 group-hover:opacity-25 transition-opacity duration-700"></div>
+
+                    {/* Professional glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#fffef7]/10 via-transparent to-[#fff8dc]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                    {/* Animated border glow - only on hover */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[#fffef7] via-[#fff8dc] to-[#fffef7] rounded-2xl opacity-0 group-hover:opacity-25 blur-sm transition-all duration-700"></div>
+                  </div>
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] rounded-full opacity-80"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#dee2e6] to-[#f8f9fa] rounded-full opacity-60"></div>
+
+                {/* Enhanced decorative elements with white-yellowish colors */}
+                <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-[#fffef7] to-[#fff8dc] rounded-full opacity-70 transform transition-all duration-700 group-hover:scale-125 group-hover:rotate-45 group-hover:opacity-90 shadow-lg"></div>
+                <div className="absolute -bottom-2 -left-2 w-12 h-12 bg-gradient-to-br from-[#fff8dc] to-[#fffef7] rounded-full opacity-60 transform transition-all duration-700 group-hover:scale-110 group-hover:-rotate-45 group-hover:opacity-80 shadow-md"></div>
+
+                {/* Floating particles effect - only on hover with white-yellowish colors */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#fffef7] rounded-full group-hover:animate-ping shadow-sm"></div>
+                  <div
+                    className="absolute top-3/4 right-1/4 w-1 h-1 bg-[#fff8dc] rounded-full group-hover:animate-ping shadow-sm"
+                    style={{ animationDelay: "0.5s" }}
+                  ></div>
+                  <div
+                    className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-[#fffef7] rounded-full group-hover:animate-ping shadow-sm"
+                    style={{ animationDelay: "1s" }}
+                  ></div>
+                </div>
+
+                {/* Professional title overlay that appears on hover */}
+                <div className="absolute bottom-12 left-12 right-12 bg-gradient-to-r from-[#2c2c2c]/90 to-[#495057]/90 backdrop-blur-sm rounded-lg p-3 transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <p className="text-white text-sm font-semibold text-center">Founder & CEO</p>
+                  <p className="text-white/80 text-xs text-center">Leading Excellence Since 2011</p>
+                </div>
               </div>
 
               {/* Owner Details */}
               <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-[#2c2c2c] font-['Cinzel']">Ahmed Al-Najma</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-[#2c2c2c] font-['Cinzel']">Hazrat Ali</h3>
                 <p className="text-xl text-[#6c757d] font-medium">Founder & CEO</p>
                 <div className="flex items-center justify-center lg:justify-start space-x-2 text-[#495057]">
                   <MapPin className="h-5 w-5" />
@@ -95,7 +118,7 @@ export default function AboutUs() {
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-2 text-[#495057]">
                   <Phone className="h-5 w-5" />
-                  <span className="font-['DM_Sans']">+971 50 123 4567</span>
+                  <span className="font-['DM_Sans']">Available on Request</span>
                 </div>
               </div>
             </div>
@@ -111,14 +134,14 @@ export default function AboutUs() {
                 <h4 className="text-2xl font-bold text-[#2c2c2c] mb-6 font-['Sora']">Our Story Since 2011</h4>
                 <div className="space-y-4 text-[#495057] font-['DM_Sans'] leading-relaxed">
                   <p>
-                    Founded in 2011 by Ahmed Al-Najma, Al-Najma Marble began as a vision to bring world-class marble
+                    Founded in 2011 by Hazrat Ali, Al-Najma Marble began as a vision to bring world-class marble
                     restoration services to Dubai's luxury market. With over 13 years of dedicated service, we have
                     established ourselves as the premier choice for high-end residential and commercial marble care.
                   </p>
                   <p>
-                    Ahmed's passion for perfection and commitment to using only the finest materials and techniques has
-                    earned Al-Najma Marble a reputation for excellence throughout the UAE. Our team of skilled craftsmen
-                    combines traditional expertise with cutting-edge technology to deliver results that exceed
+                    Hazrat Ali's passion for perfection and commitment to using only the finest materials and techniques
+                    has earned Al-Najma Marble a reputation for excellence throughout the UAE. Our team of skilled
+                    craftsmen combines traditional expertise with cutting-edge technology to deliver results that exceed
                     expectations.
                   </p>
                   <p>
@@ -129,25 +152,25 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Achievements Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/60 backdrop-blur-sm rounded-xl p-6 text-center shadow-md border border-gray-200/30 hover:shadow-lg transition-all duration-300"
-                    style={{
-                      animationDelay: `${index * 0.2}s`,
-                      animation: isVisible ? "fadeInUp 0.8s ease-out forwards" : "none",
-                    }}
-                  >
-                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] flex items-center justify-center shadow-md">
-                      <achievement.icon className="h-6 w-6 text-[#495057]" />
-                    </div>
-                    <div className="text-2xl font-bold text-[#2c2c2c] mb-1">{achievement.value}</div>
-                    <div className="text-sm font-semibold text-[#6c757d] mb-2">{achievement.label}</div>
-                    <div className="text-xs text-[#6c757d] leading-tight">{achievement.description}</div>
+              {/* Single Achievement - Since 2011 */}
+              <div className="flex justify-center lg:justify-start">
+                <div
+                  className={`bg-white/60 backdrop-blur-sm rounded-xl p-8 text-center shadow-md border border-gray-200/30 hover:shadow-lg transition-all duration-300 max-w-xs ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+                  }`}
+                  style={{
+                    animation: isVisible ? "fadeInUp 0.8s ease-out forwards" : "none",
+                  }}
+                >
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] flex items-center justify-center shadow-md">
+                    <Calendar className="h-8 w-8 text-[#495057]" />
                   </div>
-                ))}
+                  <div className="text-3xl font-bold text-[#2c2c2c] mb-2">Since 2011</div>
+                  <div className="text-lg font-semibold text-[#6c757d] mb-3">Years of Excellence</div>
+                  <div className="text-sm text-[#6c757d] leading-relaxed">
+                    Over a decade of premium marble services in Dubai
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -182,4 +205,4 @@ export default function AboutUs() {
       </div>
     </section>
   )
-              }
+}
