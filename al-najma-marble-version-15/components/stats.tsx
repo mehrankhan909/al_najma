@@ -10,7 +10,7 @@ const stats = [
     label: "Happy Clients",
     icon: Users,
     suffix: "+",
-    color: "from-[#7ba7d1] to-[#6b9b8a]",
+    color: "from-[#f4a261] to-[#e76f51]", // Orange
   },
   {
     id: "projects",
@@ -18,7 +18,7 @@ const stats = [
     label: "Projects Completed",
     icon: Building,
     suffix: "+",
-    color: "from-[#e8b4a0] to-[#d4a5b0]",
+    color: "from-[#d4c5a9] to-[#f2ede5]", // Beige
   },
   {
     id: "awards",
@@ -26,7 +26,7 @@ const stats = [
     label: "Industry Awards",
     icon: Award,
     suffix: "",
-    color: "from-[#e6d08a] to-[#7ba7d1]",
+    color: "from-[#e85a4f] to-[#ff9f7a]", // Red
   },
   {
     id: "experience",
@@ -34,7 +34,7 @@ const stats = [
     label: "Years Experience",
     icon: Clock,
     suffix: "+",
-    color: "from-[#6b9b8a] to-[#e8b4a0]",
+    color: "from-[#7ba7d1] to-[#4a90c2]", // Blue
   },
 ]
 
@@ -98,7 +98,7 @@ export default function Stats() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-br from-[#fdf5f7]/25 via-[#fefcf0]/20 to-[#f0f8f6]/25"
+      className="py-16 md:py-24 bg-gradient-to-br from-[#fdf2f2]/30 via-[#fefae8]/25 via-[#f7f3e9]/30 via-[#fdf0e8]/25 to-[#e8f2f8]/30"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
