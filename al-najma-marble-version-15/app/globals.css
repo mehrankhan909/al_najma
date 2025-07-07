@@ -24,24 +24,44 @@
   --ring: 221.2 83.2% 53.3%;
   --radius: 0.5rem;
 
-  /* Enhanced Luxury Color Palette with Light Orange */
-  --blue-soft: #d4e4f7;
-  --blue-light: #e8f1fa;
-  --blue-accent: #7ba7d1;
+  /* Enhanced Multi-Color Luxury Palette */
 
+  /* Orange Tones */
   --orange-soft: #fef4e8;
   --orange-light: #fff8f0;
   --orange-warm: #ffecd1;
   --orange-accent: #f4a261;
+  --orange-deep: #e76f51;
 
+  /* Beige Tones */
+  --beige-soft: #f7f3e9;
+  --beige-light: #faf7f0;
   --beige-warm: #f5f0e8;
-  --beige-light: #f8f5f0;
   --beige-cream: #f2ede5;
+  --beige-accent: #d4c5a9;
 
+  /* Peach Tones */
   --peach-soft: #fdf0e8;
   --peach-light: #fef6f0;
+  --peach-warm: #fce8d8;
   --peach-accent: #e8b4a0;
+  --peach-coral: #ff9f7a;
 
+  /* Red Tones */
+  --red-soft: #fdf2f2;
+  --red-light: #fef7f7;
+  --red-warm: #fce8e8;
+  --red-accent: #e85a4f;
+  --red-coral: #d32f2f;
+
+  /* Blue Tones */
+  --blue-soft: #e8f2f8;
+  --blue-light: #f4f8fb;
+  --blue-warm: #e1f0f7;
+  --blue-accent: #7ba7d1;
+  --blue-deep: #4a90c2;
+
+  /* Additional Supporting Colors */
   --teal-soft: #e8f5f2;
   --teal-light: #f0f8f6;
   --teal-accent: #6b9b8a;
@@ -296,4 +316,4 @@ h6 {
 
 .animate-float-gentle {
   animation: float-gentle 4s ease-in-out infinite;
-}
+    }
