@@ -28,8 +28,11 @@ export default function AboutUs() {
   return (
     <section id="about-us" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f8f9fa] via-white to-[#f1f3f4]">
-        {/* Subtle pattern overlay */}
+      {/* Background with warm orange tones */}
+      <div className="absolute inset-0
+bg-gradient-to-br from-[#fdfof2]
+via-[#fefae8] to-[#e8f5f2]">
+   {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-[0.02]">
           <div
             className="absolute inset-0"
@@ -45,7 +48,9 @@ export default function AboutUs() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
             Meet Our{" "}
-            <span className="bg-gradient-to-r from-[#6c757d] to-[#495057] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-
+[#2c2c2c]/90 to-
+[#495057]/90 bg-clip-text text-transparent">
               Founder & CEO
             </span>
           </h2>
@@ -77,10 +82,10 @@ export default function AboutUs() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2c2c2c]/15 via-transparent to-transparent opacity-50 group-hover:opacity-25 transition-opacity duration-700"></div>
 
                     {/* Professional glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#fffef7]/10 via-transparent to-[#fff8dc]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#f0f8f6]/8 via-transparent to-[#fdf6f3]/8 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
                     {/* Animated border glow - only on hover */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[#fffef7] via-[#fff8dc] to-[#fffef7] rounded-2xl opacity-0 group-hover:opacity-25 blur-sm transition-all duration-700"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[#7da7d1] via-[#e8b4a0] to-[#6b9b8a] rounded-2xl opacity-0 group-hover:opacity-25 blur-sm transition-all duration-700"></div>
                   </div>
                 </div>
 
@@ -182,7 +187,7 @@ export default function AboutUs() {
             }`}
           >
             {/* Mission */}
-            <div className="bg-gradient-to-br from-white to-[#f8f9fa] rounded-2xl p-8 shadow-lg border border-gray-200/50">
+            <div className="bg-gradient-to-br from-white to-[#fef4e8] rounded-2x1 p-8 shadow-1g border border-[#f4a261]/20">
               <h5 className="text-xl font-bold text-[#2c2c2c] mb-4 font-['Sora']">Our Mission</h5>
               <p className="text-[#495057] font-['DM_Sans'] leading-relaxed">
                 To preserve and enhance the natural beauty of marble through expert craftsmanship, innovative
@@ -192,8 +197,8 @@ export default function AboutUs() {
             </div>
 
             {/* Vision */}
-            <div className="bg-gradient-to-br from-[#f8f9fa] to-white rounded-2xl p-8 shadow-lg border border-gray-200/50">
-              <h5 className="text-xl font-bold text-[#2c2c2c] mb-4 font-['Sora']">Our Vision</h5>
+            <div className="bg-gradient-to-br from-[#fef4e8] to-white rounded-2x1 p-8 shadow-1g border border-[#e8b4a0]/20">
+             <h5 className="text-xl font-bold text-[#2c2c2c] mb-4 font-['Sora']">Our Vision</h5>
               <p className="text-[#495057] font-['DM_Sans'] leading-relaxed">
                 To be the leading marble restoration company in the Middle East, recognized for our innovation,
                 sustainability, and exceptional service. We envision a future where every marble surface reflects the
