@@ -414,7 +414,8 @@ export default function Services() {
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
           Our Premium{" "}
-          <span className="bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">Services</span>
+          <span className="bg-gradient-to-r from-[#7ba7d1] via-[#6b9b8al to-[#e8b4ad] bg-clip-text text-transparent">Services</span>
+          
         </h2>
         <p className="text-lg text-[#6c757d] max-w-2xl mx-auto font-['DM_Sans']">
           Comprehensive marble care solutions using advanced techniques and premium materials for exceptional results
