@@ -75,11 +75,6 @@ export default function Footer() {
                   Testimonials
                 </a>
               </li>
-              <li>
-                <a href="#book-consultation" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
 
