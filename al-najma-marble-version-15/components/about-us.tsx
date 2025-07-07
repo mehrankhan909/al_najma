@@ -26,7 +26,7 @@ export default function AboutUs() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="about-us" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background with all color tones */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#fdf2f2] via-[#fefae8] via-[#f7f3e9] via-[#fdf0e8] to-[#e8f2f8]">
         {/* Subtle pattern overlay */}
