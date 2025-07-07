@@ -55,7 +55,6 @@ export default function Navbar() {
     { name: "Services", href: "#our-services" },
     { name: "About Us", href: "#about-us" },
     { name: "Testimonials", href: "#client-reviews" },
-    { name: "Book Now", href: "#book-consultation" },
     { name: "Location", href: "#location" },
   ]
 
