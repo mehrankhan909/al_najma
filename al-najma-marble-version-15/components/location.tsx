@@ -27,10 +27,10 @@ export default function Location() {
 
   return (
     <section id="location" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Warm Color Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f7fbfa] via-[#fffef7] to-[#fef9f7]">
+      {/* Multi-Color Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f4f8fb] via-[#fffcf0] via-[#faf7f0] via-[#fef6f0] to-[#fef7f7]">
         {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.015]">
+        <div className="absolute inset-0 opacity-[0.02]">
           <div
             className="absolute inset-0"
             style={{
@@ -63,8 +63,8 @@ export default function Location() {
           >
             <div className="text-center">
               {/* Update location icon gradient */}
-              <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#f4a261] via-[#e85a4f] to-[#7ba7dl] flex items-center justify-center shadow-1g9">
-              <MapPin className="h-10 w-10 text-white" />
+              <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#f4a261] via-[#e85a4f] to-[#7ba7d1] flex items-center justify-center shadow-lg">
+                <MapPin className="h-10 w-10 text-white" />
               </div>
 
               {/* Location Details */}
