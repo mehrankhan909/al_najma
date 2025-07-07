@@ -44,11 +44,17 @@ export default function AboutUs() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
-            Meet Our{" "}
-            <span className="bg-gradient-to-r from-[#f4a261] via-[#e8b4a0] to-[#6b9b8a] bg-clip-text text-transparent">
-              Founder & CEO
-            </span>
-          </h2>
+  Meet Our{" "}
+  <span className="bg-gradient-to-r from-[#7da7d1] to-[#6b9b8a] bg-clip-text text-transparent">
+    Founder
+  </span>{" "}
+  <span className="bg-gradient-to-r from-[#7a9a7e] to-[#bfbca7] bg-clip-text text-transparent">
+    &
+  </span>{" "}
+  <span className="bg-gradient-to-r from-[#c79a85] to-[#e8b4a0] bg-clip-text text-transparent">
+    CEO
+  </span>
+</h2>
           <p className="text-lg text-[#6c757d] max-w-2xl mx-auto font-['DM_Sans']">
             Leading Dubai's marble industry with passion, expertise, and unwavering commitment to excellence
           </p>
@@ -68,7 +74,7 @@ export default function AboutUs() {
                 <div className="w-80 h-80 mx-auto lg:mx-0 bg-gradient-to-br from-[#fef4e8]/40 via-[#fdf0e8]/30 to-transparent rounded-3xl p-8 shadow-2xl backdrop-blur-sm border border-[#f4a261]/25">
                   <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl border-3 border-[#f4a261]/40 relative transform transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl">
                     <img
-                      src="/images/ceo-portrait.jpg"
+                      src="/images/IMG-20250706-WA0045.jpg"
                       alt="Hazrat Ali - Founder & CEO"
                       className="w-full h-full object-cover transition-all duration-700 filter grayscale-[15%] contrast-110 brightness-105 saturate-110 group-hover:grayscale-0 group-hover:contrast-115 group-hover:brightness-108 group-hover:saturate-120 group-hover:scale-110"
                     />
