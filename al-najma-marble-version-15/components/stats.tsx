@@ -92,7 +92,7 @@ export default function Stats() {
   }, [isVisible])
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-br from-[#c59d5f]/10 to-[#00675b]/10">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-br from-[#fdf5f7]/25 via-[#fefcf0]/20 to-[#f0f8f6]/25">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {stats.map((stat) => (
