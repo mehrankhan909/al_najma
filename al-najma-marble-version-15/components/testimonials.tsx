@@ -10,7 +10,7 @@ const testimonials = [
     id: 1,
     name: "Ahmed Al Mansouri",
     role: "Villa Owner, Palm Jumeirah",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/images/t1.jpg",
     rating: 5,
     text: "The transformation of our marble floors was beyond expectations. The team was professional, punctual, and delivered exceptional results. Our floors now have a mirror-like finish that guests always compliment.",
   },
@@ -18,7 +18,7 @@ const testimonials = [
     id: 2,
     name: "Sarah Johnson",
     role: "Interior Designer",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/images/t2.jpg",
     rating: 5,
     text: "As an interior designer, I've worked with many marble restoration companies, but this team stands out. Their attention to detail and commitment to quality is unmatched. I recommend them to all my clients.",
   },
@@ -26,7 +26,7 @@ const testimonials = [
     id: 3,
     name: "Mohammed Al Farsi",
     role: "Hotel Manager, Luxury Resort",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/images/t3.jpg",
     rating: 5,
     text: "We needed our lobby floors restored without disrupting our guests. The team worked efficiently during off-hours and delivered stunning results. The marble now enhances the luxury experience of our hotel.",
   },
@@ -34,7 +34,7 @@ const testimonials = [
     id: 4,
     name: "Priya Sharma",
     role: "Apartment Owner, Downtown Dubai",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/images/t4.jpg",
     rating: 4,
     text: "I was hesitant about restoring my old marble floors, but I'm so glad I chose this company. They were honest about what could be achieved and delivered exactly what they promised. My floors look almost new again!",
   },
@@ -81,7 +81,7 @@ export default function Testimonials() {
   }, [isVisible])
 
   return (
-    <section id="client-reviews" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
+    <section id="client-reviews" ref={sectionRef} className="py-16 md:py-28 relative overflow-hidden">
       {/* Background with all colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#fffcf0] via-[#fef7f7] via-[#faf7f0] via-[#fef6f0] to-[#f4f8fb]"></div>
       <div className="container mx-auto px-4">
