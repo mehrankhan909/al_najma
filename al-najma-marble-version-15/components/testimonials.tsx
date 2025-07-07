@@ -82,6 +82,8 @@ export default function Testimonials() {
 
   return (
     <section id="client-reviews" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background with all colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#fffcf0] via-[#fef7f7] via-[#faf7f0] via-[#fef6f0] to-[#f4f8fb]"></div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#1b1b1b]">
