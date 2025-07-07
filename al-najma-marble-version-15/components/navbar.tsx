@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 
-export default function Navbar() {
+export default function Navbar({ scrollTargets }: { scrollTargets: Record<string, React.RefObject<HTMLElement>> }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useMobile()
@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element
@@ -51,42 +50,47 @@ export default function Navbar() {
   }, [mobileMenuOpen])
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "#our-services" },
-    { name: "About Us", href: "#about-us" },
-    { name: "Testimonials", href: "#client-reviews" },
-    { name: "Location", href: "#location" },
+    { name: "Home", id: "hero" },
+    { name: "Services", id: "services" },
+    { name: "About Us", id: "about" },
+    { name: "Testimonials", id: "testimonials" },
+    { name: "Location", id: "location" },
   ]
+
+  const scrollToSection = (id: string) => {
+    const sectionRef = scrollTargets[id]
+    if (sectionRef?.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+    setMobileMenuOpen(false)
+  }
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8",
-          scrolled || mobileMenuOpen ? "bg-white/95 backdrop-blur-md py-2 shadow-lg" : "bg-transparent py-4",
+          scrolled || mobileMenuOpen ? "bg-white/95 backdrop-blur-md py-2 shadow-lg" : "bg-transparent py-4"
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
-            <a
-              href="/"
-              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent"
-            >
+            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">
               AL_<span className="font-light">NAJMA </span>
-              <span className="text-base md:text:lg font-light)">(Al Hadetha)</span>
-            </a>
+              <span className="text-base md:text:lg font-light">(Al Hadetha)</span>
+            </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                className="text-[#c59d5f] hover:text-[#c59d5f] transition-colors font-medium"
+                onClick={() => scrollToSection(link.id)}
+                className="text-[#c59d5f] hover:text-[#00675b] transition-colors font-medium"
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -108,17 +112,14 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isMobile && mobileMenuOpen && (
         <>
-          {/* Backdrop */}
           <div className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-
-          {/* Mobile Menu */}
           <div className="fixed inset-0 z-50 mobile-menu-container">
             <div className="absolute top-0 right-0 w-full h-full bg-white shadow-2xl">
               {/* Header with Close Button */}
               <div className="flex items-center justify-between p-6 border-b border-gray-100">
                 <div className="text-xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">
                   Al_<span className="font-light">NAJMA </span>
-                  <span className="text-base font-light)">(Al Hadetha)</span>
+                  <span className="text-base font-light">(Al Hadetha)</span>
                 </div>
                 <Button
                   variant="ghost"
@@ -134,14 +135,13 @@ export default function Navbar() {
               <div className="pt-8 px-6 flex flex-col h-full">
                 <nav className="flex flex-col space-y-6 text-center">
                   {navLinks.map((link) => (
-                    <a
+                    <button
                       key={link.name}
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => scrollToSection(link.id)}
                       className="text-2xl text-green-800 hover:text-[#c59d5f] transition-colors font-medium py-3 border-b border-gray-100 last:border-b-0"
                     >
                       {link.name}
-                    </a>
+                    </button>
                   ))}
                 </nav>
               </div>
