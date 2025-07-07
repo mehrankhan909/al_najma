@@ -48,9 +48,7 @@ via-[#fefae8] to-[#e8f5f2]">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
             Meet Our{" "}
-            <span className="bg-gradient-to-r from-
-[#2c2c2c]/90 to-
-[#495057]/90 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2c2c2c]/90 to-[#495057]/90 bg-clip-text text-transparent">
               Founder & CEO
             </span>
           </h2>
