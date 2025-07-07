@@ -1,4 +1,19 @@
-export default function Footer() {
+"use client"
+
+import React from "react"
+
+export default function Footer({
+  scrollTargets,
+}: {
+  scrollTargets: Record<string, React.RefObject<HTMLElement>>
+}) {
+  const scrollToSection = (id: string) => {
+    const sectionRef = scrollTargets[id]
+    if (sectionRef?.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <footer className="bg-gradient-to-br from-[#f5f5f5] via-[#ededed] to-[#e3e3e3] text-[#2c2c2c] py-12 border-t border-gray-200">
       <div className="container mx-auto px-4">
@@ -11,73 +26,79 @@ export default function Footer() {
               Dubai's premier marble polishing and restoration service for high-end residential and commercial properties.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/61578012599075/" className="text-gray-500 hover:text-[#c59d5f] transition-colors">
-                {/* Facebook Icon */}
+              <a href="https://www.facebook.com/61578012599075/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#c59d5f] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                 </svg>
               </a>
-              
             </div>
           </div>
 
+          {/* Services */}
           <div>
             <h4 className="text-lg font-bold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li>
-                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Marble Restoration
-                </a>
-              </li>
-              <li>
-                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Marble Shining
-                </a>
-              </li>
-              <li>
-                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Marble Grouting
-                </a>
-              </li>
-              <li>
-                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
-                  Crack Repair
-                </a>
-              </li>
+              {["Marble Restoration", "Marble Shining", "Marble Grouting", "Crack Repair"].map((service, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                  >
+                    {service}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#hero-section" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <button
+                  onClick={() => scrollToSection("hero")}
+                  className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                >
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#about-us" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                >
                   About Us
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#our-services" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                >
                   Services
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#location" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <button
+                  onClick={() => scrollToSection("location")}
+                  className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                >
                   Location
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#client-reviews" className="text-gray-600 hover:text-[#c59d5f] transition-colors">
+                <button
+                  onClick={() => scrollToSection("testimonials")}
+                  className="text-gray-600 hover:text-[#c59d5f] transition-colors"
+                >
                   Testimonials
-                </a>
+                </button>
               </li>
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
             <h4 className="text-lg font-bold mb-4">Contact Us</h4>
             <ul className="space-y-2">
