@@ -68,17 +68,22 @@ export default function Navbar({ scrollTargets }: { scrollTargets: Record<string
   return (
     <>
       <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8",
-          scrolled || mobileMenuOpen ? "bg-white/95 backdrop-blur-md py-2 shadow-lg" : "bg-transparent py-4"
-        )}
-      >
+  className={cn(
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8",
+    scrolled || mobileMenuOpen
+      ? "bg-white/95 backdrop-blur-md py-2 shadow-lg"
+      : "bg-white/70 backdrop-blur-md py-4"
+  )}
+>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
-            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent">
-              AL_<span className="font-light">NAJMA </span>
-              <span className="text-base md:text:lg font-light">(Al Hadetha)</span>
-            </span>
+            <button
+  onClick={() => scrollToSection("hero")}
+  className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#c59d5f] to-[#00675b] bg-clip-text text-transparent focus:outline-none"
+>
+  AL_<span className="font-light">NAJMA </span>
+  <span className="text-base md:text:lg font-light">(Al Hadetha)</span>
+</button>
           </div>
 
           {/* Desktop Navigation */}
