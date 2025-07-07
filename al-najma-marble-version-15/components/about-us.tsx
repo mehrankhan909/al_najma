@@ -46,12 +46,18 @@ via-[#fefae8] to-[#e8f5f2]">
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-['Unbounded'] text-[#2c2c2c]">
-            Meet Our{" "}
-            <span className="bg-gradient-to-r from-[#2c2c2c]/90 to-[#495057]/90 bg-clip-text text-transparent">
-              Founder & CEO
-            </span>
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center font-['Unbounded']">
+  Meet Our{" "}
+  <span className="bg-gradient-to-r from-[#7da7d1] to-[#6b9b8a] bg-clip-text text-transparent">
+    Founder
+  </span>{" "}
+  <span className="bg-gradient-to-r from-[#7a9a7e] to-[#bfbca7] bg-clip-text text-transparent">
+    &
+  </span>{" "}
+  <span className="bg-gradient-to-r from-[#c79a85] to-[#e8b4a0] bg-clip-text text-transparent">
+    CEO
+  </span>
+</h2>
           <p className="text-lg text-[#6c757d] max-w-2xl mx-auto font-['DM_Sans']">
             Leading Dubai's marble industry with passion, expertise, and unwavering commitment to excellence
           </p>
