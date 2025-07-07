@@ -62,9 +62,9 @@ export default function Location() {
             }`}
           >
             <div className="text-center">
-              {/* Location Icon with gradient */}
-              <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#7ba7d1] to-[#6b9b8a] flex items-center justify-center shadow-lg">
-                <MapPin className="h-10 w-10 text-white" />
+              {/* Update location icon gradient */}
+              <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#f4a261] via-[#e85a4f] to-[#7ba7dl] flex items-center justify-center shadow-1g9">
+              <MapPin className="h-10 w-10 text-white" />
               </div>
 
               {/* Location Details */}
