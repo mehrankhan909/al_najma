@@ -15,11 +15,12 @@ import FloatingAction from "@/components/floating-action"
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Refs for each section
+  // Refs for sections
   const heroRef = useRef(null)
   const servicesRef = useRef(null)
-  const aboutUsRef = useRef(null)
+  const aboutRef = useRef(null)
   const testimonialsRef = useRef(null)
+  const locationRef = useRef(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100)
@@ -33,17 +34,17 @@ export default function Home() {
           scrollTargets={{
             hero: heroRef,
             services: servicesRef,
-            aboutUs: aboutUsRef,
+            about: aboutRef,
             testimonials: testimonialsRef,
+            location: locationRef,
           }}
         />
-        <ContactHeader />
         <div ref={heroRef}><Hero /></div>
         <div ref={servicesRef}><Services /></div>
-        <div ref={aboutUsRef}><AboutUs /></div>
+        <div ref={aboutRef}><AboutUs /></div>
         <Stats />
         <div ref={testimonialsRef}><Testimonials /></div>
-        <Location />
+        <div ref={locationRef}><Location /></div>
         <Footer />
         <FloatingAction />
       </div>
