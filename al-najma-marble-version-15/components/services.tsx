@@ -422,32 +422,32 @@ export default function Services() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            ref={(el) => (cardRefs.current[index] = el)}
-            className={cn(
-              "relative group cursor-pointer transition-all duration-700 ease-out",
-              visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-            )}
-            onClick={() => setActiveService(service)}
-          >
-            <div
-              className={cn(
-                "h-full p-4 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
-                service.hoverBg
-              )}
-            >
-              <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-gradient-to-br from-[#c59d5f] to-[#e7c992] group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <service.icon className="h-7 w-7 text-white" />
-              </div>
-              <h3 className="text-lg font-bold mb-2 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
-                {service.title}
-              </h3>
-              <p className="text-[#6c757d] group-hover:text-white/90 mb-4 font-['DM_Sans'] leading-relaxed transition-colors duration-300">
-                {service.description}
-              </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+  {services.map((service, index) => (
+    <div
+      key={service.id}
+      ref={(el) => (cardRefs.current[index] = el)}
+      className={cn(
+        "relative group cursor-pointer transition-all duration-700 ease-out",
+        visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+      )}
+      onClick={() => setActiveService(service)}
+    >
+      <div
+        className={cn(
+          "h-full p-2 rounded-2xl border border-gray-300/30 bg-white/90 backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-gray-300/30",
+          service.hoverBg
+        )}
+      >
+        <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-[#c59d5f] to-[#e7c992] group-hover:scale-110 transition-transform duration-300 shadow-lg">
+          <service.icon className="h-5 w-5 text-white" />
+        </div>
+        <h3 className="text-base font-bold mb-1 text-[#2c2c2c] group-hover:text-white transition-colors duration-300 font-['Sora']">
+          {service.title}
+        </h3>
+        <p className="text-[#6c757d] group-hover:text-white/90 mb-2 font-['DM_Sans'] text-sm leading-snug transition-colors duration-300 line-clamp-3">
+          {service.description}
+        </p>
               <div className="flex items-center text-[#c59d5f] group-hover:text-white/90 transition-colors duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
