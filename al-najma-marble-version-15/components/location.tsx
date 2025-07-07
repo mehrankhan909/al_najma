@@ -71,7 +71,7 @@ export default function Location() {
               <div className="space-y-4">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] font-['Sora']">Al-Najma Al Hadetha Marble</h3>
                 <div className="space-y-2 text-[#495057] font-['DM_Sans']">
-                  <p className="text-lg md:text-xl">NASER AHMED SAEED MOHAMED ALAWADHI building al garhoud dubai</p>
+                  <p className="text-lg md:text-xl">NASER AHMED SAEED MOHAMED ALAWADHI building</p>
                   <p className="text-lg md:text-xl">Al Garhoud, Dubai</p>
                   <p className="text-lg md:text-xl">Dubai, United Arab Emirates</p>
                 </div>
