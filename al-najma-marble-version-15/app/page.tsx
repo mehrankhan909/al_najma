@@ -45,7 +45,15 @@ export default function Home() {
         <Stats />
         <div ref={testimonialsRef}><Testimonials /></div>
         <div ref={locationRef}><Location /></div>
-        <Footer />
+        <Footer
+  scrollTargets={{
+    hero: heroRef,
+    services: servicesRef,
+    about: aboutRef,
+    testimonials: testimonialsRef,
+    location: locationRef,
+  }}
+/>
         <FloatingAction />
       </div>
     </main>
