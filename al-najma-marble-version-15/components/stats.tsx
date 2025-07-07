@@ -10,6 +10,7 @@ const stats = [
     label: "Happy Clients",
     icon: Users,
     suffix: "+",
+    color: "from-[#7ba7d1] to-[#6b9b8a]",
   },
   {
     id: "projects",
@@ -17,6 +18,7 @@ const stats = [
     label: "Projects Completed",
     icon: Building,
     suffix: "+",
+    color: "from-[#e8b4a0] to-[#d4a5b0]",
   },
   {
     id: "awards",
@@ -24,6 +26,7 @@ const stats = [
     label: "Industry Awards",
     icon: Award,
     suffix: "",
+    color: "from-[#e6d08a] to-[#7ba7d1]",
   },
   {
     id: "experience",
@@ -31,6 +34,7 @@ const stats = [
     label: "Years Experience",
     icon: Clock,
     suffix: "+",
+    color: "from-[#6b9b8a] to-[#e8b4a0]",
   },
 ]
 
@@ -92,21 +96,26 @@ export default function Stats() {
   }, [isVisible])
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-br from-[#fdf5f7]/25 via-[#fefcf0]/20 to-[#f0f8f6]/25">
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 bg-gradient-to-br from-[#fdf5f7]/25 via-[#fefcf0]/20 to-[#f0f8f6]/25"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {stats.map((stat) => (
             <div
               key={stat.id}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-[#c59d5f]/10"
+              className="bg-white/85 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-[#f7f4f0]/40 hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#c59d5f] to-[#00675b] flex items-center justify-center">
+              <div
+                className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-md`}
+              >
                 <stat.icon className="h-6 w-6 text-white" />
               </div>
 
               <div className="flex items-center justify-center">
                 <span className="text-3xl md:text-4xl font-bold text-[#1b1b1b]">{counters[stat.id]}</span>
-                <span className="text-3xl md:text-4xl font-bold text-[#c59d5f]">{stat.suffix}</span>
+                <span className="text-3xl md:text-4xl font-bold text-[#7ba7d1]">{stat.suffix}</span>
               </div>
 
               <p className="text-sm md:text-base text-[#1b1b1b]/70 mt-2 font-['DM_Sans']">{stat.label}</p>
