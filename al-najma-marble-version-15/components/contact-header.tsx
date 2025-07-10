@@ -30,7 +30,7 @@ export default function ContactHeader() {
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <MapPin className="h-4 w-4 text-[#c59d5f]" />
             <span className="font-medium">Location:</span>
-            <span>Al Garhoud, Dubai</span>
+            <span>Al Garhoud, Dubai, UAE</span>
           </div>
 
           {/* Business Hours */}
