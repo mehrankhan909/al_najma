@@ -39,6 +39,7 @@ export default function Home() {
             location: locationRef,
           }}
         />
+        <ContactHeader />
         <div ref={heroRef}><Hero /></div>
         <div ref={servicesRef}><Services /></div>
         <div ref={aboutRef}><AboutUs /></div>
