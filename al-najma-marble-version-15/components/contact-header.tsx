@@ -9,12 +9,6 @@ export default function ContactHeader() {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly gap-4 md:gap-4">
           {/* Mobile Number */}
           <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
-            <Clock className="h-4 w-4 text-[#c59d5f]" />
-            <span className="font-medium">Since:</span>
-              2011
-          </div>
-          
-          <div className="flex items-center gap-2 text-sm text-[#1b1b1b]/80">
             <Phone className="h-4 w-4 text-[#00675b]" />
             <span className="font-medium">Mobile:</span>
             <a href="tel:+971559074262" className="hover:text-[#00675b] transition-colors">
